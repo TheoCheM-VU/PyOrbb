@@ -111,6 +111,8 @@ rst_epilog = f"""
     :align: middle
     :class: no-scaled-link
 .. |ProjectVersion| replace:: {release}
+.. |alpha| replace:: :math:`\\alpha`\\ 
+.. |beta| replace:: :math:`\\beta`\\ 
 .. |pi| replace:: :math:`\\pi`\\ 
 .. |sigma| replace:: :math:`\\sigma`\\ 
 .. |eV| replace:: :math:`\\text{{eV}}`
