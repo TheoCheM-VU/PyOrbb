@@ -1,4 +1,4 @@
-""" Module containing functions for quickly submitting geometry optimization jobs via the command line """
+"""Command-line program for generating an Excel spreadsheet for a given ADF calculation result."""
 import argparse
 import pyorbb
 
