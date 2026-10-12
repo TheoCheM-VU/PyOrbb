@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="../" data-theme="light">
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Lewis-Acid Catalysis: Diels-Alder &#8212; PyOrbb v0.12.19 documentation</title>
+    <title>Lewis-Acid Catalysis: Diels-Alder &#8212; PyOrbb v1.0.0 documentation</title>
   
   
   
   <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   <!--
     this give us a css class that will be invisible only if js is disabled
@@ -26,19 +26,19 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <script defer src="../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../_static/documentation_options.js?v=70681d04"></script>
+    <script src="../_static/documentation_options.js?v=76e2d817"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
@@ -49,9 +49,10 @@
     <link rel="icon" href="https://avatars.githubusercontent.com/u/119413491"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Hydrogen-Bonding: Guanine–Cytosine Base Pair" href="GC_basepair.html" />
-    <link rel="prev" title="Diels-Alder Transition State" href="DielsAlder.html" />
+    <link rel="next" title="Hydrogen Bonding in the Guanine–Cytosine Base Pair" href="GC_basepair.html" />
+    <link rel="prev" title="Diels–Alder Transition State" href="DielsAlder.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
   
@@ -61,7 +62,7 @@
     <script src="../searchindex.js"></script>
   
   </head>
-  <body data-default-mode="">
+  <body data-default-mode="light">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
@@ -122,14 +123,12 @@
   
     
     
-      
-    
     
     <img src="../_static/icon_12.png" class="logo__image only-light" alt=""/>
     <img src="../_static/icon_12.png" class="logo__image only-dark pst-js-only" alt=""/>
   
   
-    <p class="title logo__title">PyOrbb v0.12.19 documentation</p>
+    <p class="title logo__title">PyOrbb v1.0.0 documentation</p>
   
 </a></div>
     
@@ -150,21 +149,6 @@
 </button>
         </div>
       
-      
-        <div class="navbar-item">
-
-<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
-  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
-    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
-  </button>
-  <ul class="dropdown-menu dropdown-menu-end">
-    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
-    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
-    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
-  </ul>
-</div></div>
       
     </div>
     
@@ -206,25 +190,6 @@
     
     
     
-      <div class="sidebar-header-items__end">
-        
-          <div class="navbar-item">
-
-<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
-  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
-    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
-  </button>
-  <ul class="dropdown-menu dropdown-menu-end">
-    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
-    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
-    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
-  </ul>
-</div></div>
-        
-      </div>
-    
   </div>
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
@@ -241,17 +206,17 @@
   </p>
   <div class="bd-toc-item navbar-nav">
     <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation Manual PyOrbb v0.12.19</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation Manual PyOrbb v1.0.0</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../application.html">PyOrbb Application</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../notices.html">Warnings and Errors in PyOrbb</a></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Example PyOrbb Analyses</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../get_started.html">Getting Started: H<sub>3</sub>B←NH<sub>3</sub> Lewis Adduct</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Oxidative_addition.html">Oxidative Addition: C-–H Bond Activation by Fe(CO)4</a></li>
-<li class="toctree-l3"><a class="reference internal" href="DielsAlder.html">Diels-Alder Transition State</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Oxidative_addition.html">Oxidative Addition: C–H Bond Activation by Fe(CO)<sub>4</sub></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DielsAlder.html">Diels–Alder Transition State</a></li>
 <li class="toctree-l3 current active"><a aria-current="page" class="current reference internal" href="#">Lewis-Acid Catalysis: Diels-Alder</a></li>
-<li class="toctree-l3"><a class="reference internal" href="GC_basepair.html">Hydrogen-Bonding: Guanine–Cytosine Base Pair</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GC_basepair.html">Hydrogen Bonding in the Guanine–Cytosine Base Pair</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Hetero_vs_homo.html">Hetero- and Homolytic Bond Cleavage of Fluoromethane</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Homolytic_Ethane.html">C–-C Bond Formation in Ethane</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Homolytic_Ethane.html">C–C Bond Formation in Ethane</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Methyl_rad.html">Formation of the Methyl Radical</a></li>
 </ul>
 </details></li>
@@ -359,54 +324,89 @@
                   
   <section id="lewis-acid-catalysis-diels-alder">
 <h1>Lewis-Acid Catalysis: Diels-Alder<a class="headerlink" href="#lewis-acid-catalysis-diels-alder" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<figure class="align-center" id="id11">
+<a class="reference internal image-reference" href="../_images/intro.png"><img alt="../_images/intro.png" src="../_images/intro.png" style="width: 80%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Reaction between isoprene (diene) and methyl acrylate (dienophile) with (green) and without (black) the AlCl<span class="math notranslate nohighlight">\(_3\)</span> Lewis acid catalyst.</span><a class="headerlink" href="#id11" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Catalysis of Diels-Alder reactions is an important tool in enhancing the reactivity and steering of the regiochemistry of the reactions. Lewis acids form one category of such catalysts and may bind to either the dienophile or diene to modify their electronic properties.<a class="footnote-reference brackets" href="#id8" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><a class="footnote-reference brackets" href="#id9" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> In this example we compare two Diels-Alder reactions between isoprene (diene) and methyl acrylate (dienophile), with one reaction being uncatalyzed, and the other catalyzed by the Lewis acid AlCl<span class="math notranslate nohighlight">\(_3\)</span>.<a class="footnote-reference brackets" href="#id8" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><a class="footnote-reference brackets" href="#id9" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
+</section>
 <section id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h2>
-<p>The adf.rkf files for the uncatalysed and the Lewis-acid catalysed complexes scrutinized in this example, can be downloaded here:</p>
+<section id="load-the-calculation">
+<h3>Load the calculation<a class="headerlink" href="#load-the-calculation" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
-<li><p><strong>Download</strong> <a class="reference download internal" download="" href="../_downloads/1a86795bc751c3c7cfea58d3a64d253a/TS_14.rkf"><code class="xref download docutils literal notranslate"><span class="pre">Uncatalysed_DA.adf.rkf</span></code></a> and <a class="reference download internal" download="" href="../_downloads/82c38322e3bea10c6c1efba3674c27fc/TS_AlCl3_14.rkf"><code class="xref download docutils literal notranslate"><span class="pre">LA_catalysed_DA.adf.rkf</span></code></a></p></li>
-<li><p>Open the PyOrbb application.</p></li>
-<li><p>Drag the both .adf.rkf files to the GUI.</p></li>
+<li><p>Download the example files:
+<a class="reference download internal" download="" href="../_downloads/1a86795bc751c3c7cfea58d3a64d253a/TS_14.rkf"><code class="xref download docutils literal notranslate"><span class="pre">TS_14.rkf</span></code></a> and <a class="reference download internal" download="" href="../_downloads/82c38322e3bea10c6c1efba3674c27fc/TS_AlCl3_14.rkf"><code class="xref download docutils literal notranslate"><span class="pre">TS_AlCl3_14.rkf</span></code></a></p></li>
+<li><p>Open PyOrbb and drag both <code class="docutils literal notranslate"><span class="pre">TS_14.rkf</span></code> and <code class="docutils literal notranslate"><span class="pre">TS_AlCl3_14.rkf</span></code> into the application.</p></li>
+<li><p>Uncheck <code class="docutils literal notranslate"><span class="pre">Show</span> <span class="pre">OI</span></code> to hide the orbital interactions.</p></li>
+<li><p>Double-click the “Ester” fragment label in the “TS_14.rkf” tab and rename it to <code class="docutils literal notranslate"><span class="pre">Dienophile</span></code>.</p></li>
+<li><p>Double-click the “Ester” fragment label in the “TS_AlCl3_14.rkf” tab and rename it to <code class="docutils literal notranslate"><span class="pre">Dienophile-AlCl$_3$</span></code>.</p></li>
 </ol>
-<p>Now, the GUI will show two tabs.
-Each revealing the most important interactions.
-As the diene fragment is consistent in both complexes, one can select the orbital of interest (<span class="math notranslate nohighlight">\(\pi\)</span>-HOMO<sub>diene</sub>–1) in both tabs to zoom in on what changes in the dienophile upon Lewis-acid coordination.</p>
-<ol class="arabic simple" start="4">
-<li><p>Select the orbital of interest</p></li>
-<li><p>Click the Filter button in the GUI</p></li>
+<p>The resulting diagrams are used in the analysis below and should both contain only one Pauli repulsive interactions.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Fragment renaming accepts LaTeX input by encapsulating the LaTeX text with dollarsigns.</p>
+</div>
+</section>
+<section id="obtaining-the-overlaps">
+<h3>Obtaining the overlaps<a class="headerlink" href="#obtaining-the-overlaps" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Click on the diene and dienophile FMOs while holding the shift key in the “TS_14.rkf” tab.</p></li>
+<li><p>Click on the “Orbitals” tab on the right side of the diagram. It should now show you information about the selected orbitals.</p></li>
+<li><p>Press the “Diene(18A) ± Dienophile(23A)” header to open the information section and note down the overlap (<code class="docutils literal notranslate"><span class="pre">Sij</span></code>).</p></li>
+<li><p>Do the same for the diagram in the “TS_AlCl3_14.rkf” tab.</p></li>
 </ol>
-<ol class="arabic simple" start="4">
-<li><p>Select the orbital of interest.</p></li>
-<li><p>Click on the orbital (<span class="math notranslate nohighlight">\(\varphi\)</span>).</p></li>
+</section>
+<section id="view-the-orbitals">
+<h3>View the orbitals<a class="headerlink" href="#view-the-orbitals" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Select an orbital in the interaction diagram.</p></li>
+<li><p>Click the orbital-viewer control labelled <code class="docutils literal notranslate"><span class="pre">φ</span></code>.</p></li>
 </ol>
-<p>Now the PyOrbb viewer window will open with many options for drawing the orbitals.</p>
-<p>Once the previous steps have been completed, the user should be able to reproduce the following analysis <a class="footnote-reference brackets" href="#id4" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id5" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id6" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>.</p>
+<p>Inspect the orbitals on both fragments, using a viewing direction that
+shows the two forming carbon–carbon bonds. Pay special attention to the orbital size of the <span class="math notranslate nohighlight">\(\pi\)</span>-HOMOs of the dienophiles and make note of the amplitudes on the carbon atoms.</p>
+</section>
 </section>
 <section id="analysis">
 <h2>Analysis<a class="headerlink" href="#analysis" title="Link to this heading">#</a></h2>
-<p>The Diels-Alder reaction can be catalyzed by Lewis acids (LA).
-Conventionally, LA catalysis has been explained as a consequence of enhanced reactivity resulting from stronger orbital interactions (<em>viz.</em> LUMO-lowering catalysis) <sup>1b</sup>.
-In 2020, Vermeeren <em>et al.</em> used ASM and EDA methodologies to point out that the enhanced reactivity upon LA-catalysis of the Diels-Alder reaction between isoprene and methyl acrylate was due to the reduced four-electron (Pauli) repulsion (<em>viz.</em> Pauli-lowering catalysis).
-They demonstrated that the LA pulls density away from the dienophile, resulting in a smaller amplitude of occupied <span class="math notranslate nohighlight">\(\pi\)</span>-orbitals on the C–C double bond of the dienophile.
-This, in turn, results in less occupied-occupied overlap with the <span class="math notranslate nohighlight">\(\pi\)</span>-system of the diene and thus less Pauli repulsion.</p>
-<p>These insights can be obtained conveniently by applying the PyOrbb program to both the uncatalyzed and LA-catalyzed reaction (see below).
-To focus on the Pauli lowering effect, we hide the orbital interactions, leaving only the four-electron (Pauli) repulsive interactions in the interactive MO diagram.
-For both systems, the key interaction was identified to be between the occupied diene (<span class="math notranslate nohighlight">\(\pi\)</span>-HOMO<sub>diene</sub>–1), which is the in-phase combination of the <span class="math notranslate nohighlight">\(\pi\)</span>-system of the diene, and the <span class="math notranslate nohighlight">\(\pi\)</span>-bonding orbital in the ester (<span class="math notranslate nohighlight">\(\pi\)</span>-HOMO<sub>dienophile</sub> for both the uncatalyzed and the LA-catalyzed reaction).
-As reported in the literature, the lowering of the overlap between these two <span class="math notranslate nohighlight">\(\pi\)</span>-systems upon LA coordination causes the reduced Pauli repulsion.</p>
+<figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="../_images/diagrams.png"><img alt="Fragment orbitals involved in donation and Pauli repulsion at the Diels–Alder transition state." src="../_images/diagrams.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Main Pauli repulsive interaction between the diene and the dienophile with (right diagram) and without (left diagram) the AlCl<span class="math notranslate nohighlight">\(_3\)</span> catalyst. The overlap between the FMOs is also provided in the diagrams.</span><a class="headerlink" href="#id12" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id13">
+<a class="reference internal image-reference" href="../_images/schematic.png"><img alt="Fragment orbitals involved in donation and Pauli repulsion at the Diels–Alder transition state." src="../_images/schematic.png" style="width: 75%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Schematic orbital diagram with the corresponding orbitals.</span><a class="headerlink" href="#id13" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>AlCl<span class="math notranslate nohighlight">\(_3\)</span> is a so-called Pauli-lowering catalyst. Due to the mixing of the catalyst with the dienophile, the amplitudes of the <span class="math notranslate nohighlight">\(\pi\)</span>-HOMO on the dienophile carbon atoms arae reduced, leading to reduced overlap with the <span class="math notranslate nohighlight">\(\pi\)</span>-HOMO–1 of the diene. The overlap values reflect this: the overlap between Diene(<span class="math notranslate nohighlight">\(\pi\)</span>-HOMO-1) and Dienophile(<span class="math notranslate nohighlight">\(\pi\)</span>-HOMO) is 0.149, which is reduced to 0.123 when the catalyst is introduced.
+As discussed in the main article,<a class="footnote-reference brackets" href="#id10" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> and as reported in the literature,<a class="footnote-reference brackets" href="#id8" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><a class="footnote-reference brackets" href="#id9" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> the lowering of the overlap between these two <span class="math notranslate nohighlight">\(\pi\)</span>-orbitals upon coordination of AlCl<span class="math notranslate nohighlight">\(_3\)</span> causes the reduced Pauli repulsion and the reduced activation barrier.</p>
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id4" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<aside class="footnote brackets" id="id8" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id3">2</a>,<a role="doc-backlink" href="#id6">3</a>)</span>
 <p>P. Vermeeren, T. A. Hamlin, I. Fernández, and F. M. Bickelhaupt, “How Lewis Acids Catalyze Diels–Alder Reactions,” Angewandte Chemie 132 (2020): 6260–6265, <a class="reference external" href="https://doi.org/10.1002/ange.201914582">https://doi.org/10.1002/ange.201914582</a>;</p>
 </aside>
-<aside class="footnote brackets" id="id5" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<aside class="footnote brackets" id="id9" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id4">2</a>,<a role="doc-backlink" href="#id7">3</a>)</span>
 <p>T. A. Hamlin, F. M. Bickelhaupt, and I. Fernández, “The Pauli Repulsion-Lowering Concept in Catalysis,” Accounts of Chemical Research 54 (2021): 1972–1981, <a class="reference external" href="https://doi.org/10.1021/acs.accounts.1c00016">https://doi.org/10.1021/acs.accounts.1c00016</a>.</p>
 </aside>
-<aside class="footnote brackets" id="id6" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
-<p>Yuman Hordijk, Steven E. Beutick, Xiaobo Sun, Laurens Groot, Tori Gijzen, Jordi Poater, Trevor A. Hamlin, F. Matthias Bickelhaupt, Célia Fonseca Guerra, “PyOrbb – Automated Analyses of Orbital-Interaction Mechanisms” <em>Journal of Computational Chemistry</em>, <strong>2026</strong>, e70512, DOI=https://doi.org/10.1002/jcc.70512.</p>
+<aside class="footnote brackets" id="id10" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">3</a><span class="fn-bracket">]</span></span>
+<p>Y. Hordijk, S. E. Beutick, X. Sun, L. Groot, T. Gijzen, J. Poater, T. A. Hamlin, F. M. Bickelhaupt, C. Fonseca Guerra, “PyOrbb – Automated Analyses of Orbital-Interaction Mechanisms” <em>J. Comput. Chem.</em>, <strong>2026</strong>, e70512, DOI: <a class="reference external" href="https://doi.org/10.1002/jcc.70512">https://doi.org/10.1002/jcc.70512</a>.</p>
 </aside>
 </aside>
 </section>
@@ -428,7 +428,7 @@ As reported in the literature, the lowering of the overlap between these two <sp
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Diels-Alder Transition State</p>
+        <p class="prev-next-title">Diels–Alder Transition State</p>
       </div>
     </a>
     <a class="right-next"
@@ -436,7 +436,7 @@ As reported in the literature, the lowering of the overlap between these two <sp
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Hydrogen-Bonding: Guanine–Cytosine Base Pair</p>
+        <p class="prev-next-title">Hydrogen Bonding in the Guanine–Cytosine Base Pair</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -459,7 +459,13 @@ As reported in the literature, the lowering of the overlap between these two <sp
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-calculation">Load the calculation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#obtaining-the-overlaps">Obtaining the overlaps</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#view-the-orbitals">View the orbitals</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
@@ -487,8 +493,8 @@ As reported in the literature, the lowering of the overlap between these two <sp
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -521,7 +527,7 @@ As reported in the literature, the lowering of the overlap between these two <sp
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
 </p></div>
       
     </div>

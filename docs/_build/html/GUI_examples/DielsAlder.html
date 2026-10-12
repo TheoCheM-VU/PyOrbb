@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="../" data-theme="light">
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Diels-Alder Transition State &#8212; PyOrbb v0.12.19 documentation</title>
+    <title>Diels–Alder Transition State &#8212; PyOrbb v1.0.0 documentation</title>
   
   
   
   <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   <!--
     this give us a css class that will be invisible only if js is disabled
@@ -26,19 +26,19 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <script defer src="../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../_static/documentation_options.js?v=70681d04"></script>
+    <script src="../_static/documentation_options.js?v=76e2d817"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
@@ -50,8 +50,9 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Lewis-Acid Catalysis: Diels-Alder" href="DA_LA.html" />
-    <link rel="prev" title="Oxidative Addition: C-–H Bond Activation by Fe(CO)4" href="Oxidative_addition.html" />
+    <link rel="prev" title="Oxidative Addition: C–H Bond Activation by Fe(CO)4" href="Oxidative_addition.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
   
@@ -61,7 +62,7 @@
     <script src="../searchindex.js"></script>
   
   </head>
-  <body data-default-mode="">
+  <body data-default-mode="light">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
@@ -122,14 +123,12 @@
   
     
     
-      
-    
     
     <img src="../_static/icon_12.png" class="logo__image only-light" alt=""/>
     <img src="../_static/icon_12.png" class="logo__image only-dark pst-js-only" alt=""/>
   
   
-    <p class="title logo__title">PyOrbb v0.12.19 documentation</p>
+    <p class="title logo__title">PyOrbb v1.0.0 documentation</p>
   
 </a></div>
     
@@ -150,21 +149,6 @@
 </button>
         </div>
       
-      
-        <div class="navbar-item">
-
-<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
-  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
-    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
-  </button>
-  <ul class="dropdown-menu dropdown-menu-end">
-    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
-    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
-    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
-  </ul>
-</div></div>
       
     </div>
     
@@ -206,25 +190,6 @@
     
     
     
-      <div class="sidebar-header-items__end">
-        
-          <div class="navbar-item">
-
-<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
-  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
-    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
-  </button>
-  <ul class="dropdown-menu dropdown-menu-end">
-    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
-    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
-    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
-  </ul>
-</div></div>
-        
-      </div>
-    
   </div>
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
@@ -241,17 +206,17 @@
   </p>
   <div class="bd-toc-item navbar-nav">
     <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation Manual PyOrbb v0.12.19</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation Manual PyOrbb v1.0.0</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../application.html">PyOrbb Application</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../notices.html">Warnings and Errors in PyOrbb</a></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Example PyOrbb Analyses</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../get_started.html">Getting Started: H<sub>3</sub>B←NH<sub>3</sub> Lewis Adduct</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Oxidative_addition.html">Oxidative Addition: C-–H Bond Activation by Fe(CO)4</a></li>
-<li class="toctree-l3 current active"><a aria-current="page" class="current reference internal" href="#">Diels-Alder Transition State</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Oxidative_addition.html">Oxidative Addition: C–H Bond Activation by Fe(CO)<sub>4</sub></a></li>
+<li class="toctree-l3 current active"><a aria-current="page" class="current reference internal" href="#">Diels–Alder Transition State</a></li>
 <li class="toctree-l3"><a class="reference internal" href="DA_LA.html">Lewis-Acid Catalysis: Diels-Alder</a></li>
-<li class="toctree-l3"><a class="reference internal" href="GC_basepair.html">Hydrogen-Bonding: Guanine–Cytosine Base Pair</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GC_basepair.html">Hydrogen Bonding in the Guanine–Cytosine Base Pair</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Hetero_vs_homo.html">Hetero- and Homolytic Bond Cleavage of Fluoromethane</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Homolytic_Ethane.html">C–-C Bond Formation in Ethane</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Homolytic_Ethane.html">C–C Bond Formation in Ethane</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Methyl_rad.html">Formation of the Methyl Radical</a></li>
 </ul>
 </details></li>
@@ -340,7 +305,7 @@
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">Example PyOrbb Analyses</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Diels-Alder Transition State</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Diels–Alder Transition State</span></li>
   </ul>
 </nav>
 </div>
@@ -357,58 +322,142 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="diels-alder-transition-state">
-<h1>Diels-Alder Transition State<a class="headerlink" href="#diels-alder-transition-state" title="Link to this heading">#</a></h1>
+  <section id="dielsalder-transition-state">
+<h1>Diels–Alder Transition State<a class="headerlink" href="#dielsalder-transition-state" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<figure class="align-center" id="id16">
+<a class="reference internal image-reference" href="../_images/intro1.png"><img alt="Transition-state structure for the Diels–Alder reaction between buta-1,3-diene and ethylene." src="../_images/intro1.png" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Transition state for the cycloaddition of buta-1,3-diene and ethylene.</span><a class="headerlink" href="#id16" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The Diels–Alder reaction combines a conjugated diene and a dienophile to
+form a new six-membered ring. Two new carbon–carbon bonds form as the <span class="math notranslate nohighlight">\(\pi\)</span>-systems
+of the reactants reorganize.<a class="footnote-reference brackets" href="#id10" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a><a class="footnote-reference brackets" href="#id11" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a><a class="footnote-reference brackets" href="#id12" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a><a class="footnote-reference brackets" href="#id13" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a><a class="footnote-reference brackets" href="#id14" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a><a class="footnote-reference brackets" href="#id15" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a></p>
+<p>In this example, we use PyOrbb to examine the transition state of the
+reaction between buta-1,3-diene and ethylene. The analysis identifies
+both normal and inverse electron demand mechanisms, together with an occupied–occupied
+interaction that contributes to Pauli repulsion.<a class="footnote-reference brackets" href="#id9" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+</section>
 <section id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Link to this heading">#</a></h2>
-<p>The adf.rkf file for this example can be downloaded here:</p>
+<section id="load-the-calculation">
+<h3>Load the calculation<a class="headerlink" href="#load-the-calculation" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
-<li><p><strong>Download</strong> <a class="reference download internal" download="" href="../_downloads/3de363ad9e0f462073fdc8131ea310a0/DielsAlder.rkf"><code class="xref download docutils literal notranslate"><span class="pre">DielsAlder_TS.adf.rkf</span></code></a></p></li>
-<li><p>Open the PyOrbb application.</p></li>
-<li><p>Drag the .adf.rkf file to the GUI.</p></li>
+<li><p>Download the example file:
+<a class="reference download internal" download="" href="../_downloads/3de363ad9e0f462073fdc8131ea310a0/DielsAlder.rkf"><code class="xref download docutils literal notranslate"><span class="pre">DielsAlder.rkf</span></code></a>.</p></li>
+<li><p>Open PyOrbb and drag the <code class="docutils literal notranslate"><span class="pre">DielsAlder.rkf</span></code> file into the application.</p></li>
 </ol>
-<p>Now the most important interactions will appear. To further study
-fragment orbitals that interact, the user will want to visualize the
-orbitals:</p>
-<ol class="arabic simple" start="4">
-<li><p>Select the orbital of interest.</p></li>
-<li><p>Click on the orbital (<span class="math notranslate nohighlight">\(\varphi\)</span>).</p></li>
+<p>The interaction diagram shows the selected interactions between the
+diene and dienophile FMOs.</p>
+</section>
+<section id="view-the-orbitals">
+<h3>View the orbitals<a class="headerlink" href="#view-the-orbitals" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Select an orbital in the interaction diagram.</p></li>
+<li><p>Click the orbital-viewer control labelled <code class="docutils literal notranslate"><span class="pre">φ</span></code>.</p></li>
 </ol>
-<p>Now the PyOrbb viewer window will open with many options for drawing
-the orbitals.</p>
-<p>Once the previous steps have been completed, the user should be able
-to reproduce the following analysis <a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id4" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
+<p>Inspect the orbitals on both fragments, using a viewing direction that
+shows the two forming carbon–carbon bonds. Compare the phases and
+amplitudes at the terminal carbon atoms of the diene and at the two
+carbon atoms of ethylene.</p>
+</section>
 </section>
 <section id="analysis">
 <h2>Analysis<a class="headerlink" href="#analysis" title="Link to this heading">#</a></h2>
-<p>Diels-Alder cycloadditions are a crucial class of reactions in
-heterocyclic chemistry, materials chemistry, and total synthesis,
-and have been extensively studied computationally. In this example,
-we study the bonding mechanism between the diene, buta-1,3-diene,
-and the dienophile, ethylene, in the Diels-Alder transition state.</p>
-<p>Generally, in pericyclic transition states, two interactions play an
-important role, namely the normal electron demand (NED) interaction
-between a filled orbital on the diene and a virtual orbital of the
-dienophile, and the inverse electron demand (IED), where electrons
-are donated from a filled orbital on the dienophile to a virtual
-orbital on the diene. PyOrbb correctly finds both the NED
-and IED interactions (Figure 9). Additionally, it identifies the
-Pauli repulsive interaction between the HOMO-1 of the diene and the
-HOMO of the dienophile, which contributes significantly to the Pauli
-repulsion term in the EDA computation.</p>
+<figure class="align-center" id="id17">
+<a class="reference internal image-reference" href="../_images/DielsAlder.png"><img alt="Fragment orbitals involved in donation and Pauli repulsion at the Diels–Alder transition state." src="../_images/DielsAlder.png" style="width: 75%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Selected orbital interactions between buta-1,3-diene and ethylene.</span><a class="headerlink" href="#id17" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id18">
+<a class="reference internal image-reference" href="../_images/diagram.png"><img alt="Fragment orbitals involved in donation and Pauli repulsion at the Diels–Alder transition state." src="../_images/diagram.png" style="width: 50%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Schematic orbital interaction diagram with the corresponding orbitals.</span><a class="headerlink" href="#id18" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="donation-from-the-diene">
+<h3>Donation from the diene<a class="headerlink" href="#donation-from-the-diene" title="Link to this heading">#</a></h3>
+<p>The normal-electron-demand (NED) mechanism involves donation from an
+occupied <span class="math notranslate nohighlight">\(\pi\)</span>-orbital on the diene into a virtual <span class="math notranslate nohighlight">\(\pi\)</span>-orbital on the
+dienophile. In the frontier-orbital description, this is the interaction
+between the diene HOMO and the ethylene LUMO.</p>
+<p>The diene HOMO has opposite phases at its terminal carbon atoms, matching
+the phase pattern of the ethylene <span class="math notranslate nohighlight">\(\pi\)</span>-antibonding LUMO. In the
+cycloaddition geometry, these orbitals can overlap constructively at
+both forming bonds. Their mixing provides a stabilizing contribution
+to the interaction between the fragments.</p>
+</section>
+<section id="donation-from-the-dienophile">
+<h3>Donation from the dienophile<a class="headerlink" href="#donation-from-the-dienophile" title="Link to this heading">#</a></h3>
+<p>Donation also occurs in the opposite direction: an occupied <span class="math notranslate nohighlight">\(\pi\)</span>-FMO
+on ethylene interacts with a virtual <span class="math notranslate nohighlight">\(\pi\)</span>-FMO on the diene. This is
+the inverse-electron-demand (IED) channel, represented in the
+frontier-orbital description by the ethylene HOMO and the diene LUMO.</p>
+<p>The ethylene HOMO has the same phase on its two carbon atoms. The diene
+LUMO likewise has matching phases at its terminal carbon atoms, allowing
+constructive overlap at both forming bonds.</p>
+<p>NED and IED describe the two directions of donation in this analysis.
+Their presence does not mean that the reaction follows two separate
+mechanisms, nor does it establish which channel is energetically more
+important. Both contribute to the orbital interaction at the same
+transition-state geometry.</p>
+</section>
+<section id="pauli-repulsion">
+<h3>Pauli repulsion<a class="headerlink" href="#pauli-repulsion" title="Link to this heading">#</a></h3>
+<p>PyOrbb also identifies the interaction between the diene HOMO−1 and
+the dienophile HOMO. The diene HOMO−1 is the in-phase combination of
+the diene <span class="math notranslate nohighlight">\(\pi\)</span>-system, while the ethylene HOMO is its occupied <span class="math notranslate nohighlight">\(\pi\)</span>-bonding
+orbital. Their spatial overlap contributes significantly to the Pauli
+repulsion discussed in the main article.<a class="footnote-reference brackets" href="#id9" id="id8" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+<p>Unlike the donation channels, both orbitals are occupied. Their overlap
+requires the occupied orbitals of the combined system to become
+orthogonal, giving rise to a destabilizing contribution. A favourable
+phase pattern therefore does not, by itself, imply a stabilizing
+interaction: orbital occupation matters as well.</p>
+<p>This example shows both sides of the interaction between the approaching
+reactants. Occupied–virtual mixing stabilizes the system, while
+occupied–occupied overlap contributes to Pauli repulsion. Orbital plots
+help identify these contributions, but their shapes alone do not give
+their energetic balance or the overall activation barrier.</p>
+</section>
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="id3" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<ol class="upperalpha simple" start="24">
-<li><p>Sun, M. V. J. Rocha, T. A. Hamlin, J. Poater, and F. M. Bickelhaupt, “Understanding the differences between iron and palladium in cross-coupling reactions,” Physical Chemistry Chemical Physics 21 (2019): 9651–9664, <a class="reference external" href="https://doi.org/10.1039/c8cp07671e">https://doi.org/10.1039/c8cp07671e</a>.</p></li>
-</ol>
+<aside class="footnote brackets" id="id9" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id7">1</a>,<a role="doc-backlink" href="#id8">2</a>)</span>
+<p>Y. Hordijk, S. E. Beutick, X. Sun, L. Groot, T. Gijzen, J. Poater, T. A. Hamlin, F. M. Bickelhaupt, C. Fonseca Guerra, “PyOrbb – Automated Analyses of Orbital-Interaction Mechanisms” <em>J. Comput. Chem.</em>, <strong>2026</strong>, e70512, DOI: <a class="reference external" href="https://doi.org/10.1002/jcc.70512">https://doi.org/10.1002/jcc.70512</a>.</p>
 </aside>
-<aside class="footnote brackets" id="id4" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
-<p>Yuman Hordijk, Steven E. Beutick, Xiaobo Sun, Laurens Groot, Tori Gijzen, Jordi Poater, Trevor A. Hamlin, F. Matthias Bickelhaupt, Célia Fonseca Guerra, “PyOrbb – Automated Analyses of Orbital-Interaction Mechanisms” <em>Journal of Computational Chemistry</em>, <strong>2026</strong>, e70512, DOI=https://doi.org/10.1002/jcc.70512.</p>
+<aside class="footnote brackets" id="id10" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">2</a><span class="fn-bracket">]</span></span>
+<p>I. Fernández, F. M. Bickelhaupt, “Deeper Insight into the Diels–Alder Reaction through the Activation Strain Model,” <em>Chem. – Asian J.</em>, <strong>2016</strong>, 3297–3304, DOI: <a class="reference external" href="https://doi.org/10.1002/asia.201601203">https://doi.org/10.1002/asia.201601203</a>.</p>
+</aside>
+<aside class="footnote brackets" id="id11" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">3</a><span class="fn-bracket">]</span></span>
+<p>A. Talbot, D. Devarajan, S. J. Gustafson, I. Fernández, F. M. Bickelhaupt, D. H. Ess, “Activation-Strain Analysis Reveals Unexpected Origin of Fast Reactivity in Heteroaromatic Azadiene Inverse-Electron-Demand Diels–Alder Cycloadditions,” <em>J. Org. Chem.</em>, <strong>2014</strong>, 548–558, DOI: <a class="reference external" href="https://doi.org/10.1021/jo5025514">https://doi.org/10.1021/jo5025514</a>.</p>
+</aside>
+<aside class="footnote brackets" id="id12" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">4</a><span class="fn-bracket">]</span></span>
+<p>I. Fernández, F. M. Bickelhaupt, “Origin of the “endo rule” in Diels-Alder reactions,” <em>J. Comput. Chem.</em>, <strong>2013</strong>, 371–376, DOI: <a class="reference external" href="https://doi.org/10.1002/jcc.23500">https://doi.org/10.1002/jcc.23500</a>.</p>
+</aside>
+<aside class="footnote brackets" id="id13" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">5</a><span class="fn-bracket">]</span></span>
+<p>E. H. Tiekink, P. Vermeeren, T. A. Hamlin, “Not antiaromaticity gain, but increased asynchronicity enhances the Diels–Alder reactivity of tropone,” <em>Chem. Comm.</em>, <strong>2023</strong>, 3703–3706, DOI: <a class="reference external" href="https://doi.org/10.1039/d3cc00512g">https://doi.org/10.1039/d3cc00512g</a>.</p>
+</aside>
+<aside class="footnote brackets" id="id14" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">6</a><span class="fn-bracket">]</span></span>
+<p>P. Vermeeren, T. A. Hamlin, F. M. Bickelhaupt, “Origin of asynchronicity in Diels–Alder reactions,” <em>Phys. Chem. Chem. Phys.</em>, <strong>2021</strong>, 20095–20106, DOI: <a class="reference external" href="https://doi.org/10.1039/d1cp02456f">https://doi.org/10.1039/d1cp02456f</a>.</p>
+</aside>
+<aside class="footnote brackets" id="id15" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">7</a><span class="fn-bracket">]</span></span>
+<p>K. N. Houk, F. Liu, Z. Yang, J. I. Seeman, “Evolution of the Diels–Alder Reaction Mechanism since the 1930s: Woodward, Houk with Woodward, and the Influence of Computational Chemistry on Understanding Cycloadditions,” <em>Angew. Chem. Int. Ed.</em>, <strong>2021</strong> 12660–12681, DOI: <a class="reference external" href="https://doi.org/10.1002/anie.202001654">https://doi.org/10.1002/anie.202001654</a>.</p>
 </aside>
 </aside>
 </section>
@@ -430,7 +479,7 @@ repulsion term in the EDA computation.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Oxidative Addition: C-–H Bond Activation by Fe(CO)4</p>
+        <p class="prev-next-title">Oxidative Addition: C–H Bond Activation by Fe(CO)<sub>4</sub></p>
       </div>
     </a>
     <a class="right-next"
@@ -461,8 +510,18 @@ repulsion term in the EDA computation.</p>
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-calculation">Load the calculation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#view-the-orbitals">View the orbitals</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#donation-from-the-diene">Donation from the diene</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#donation-from-the-dienophile">Donation from the dienophile</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pauli-repulsion">Pauli repulsion</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
   </nav></div>
@@ -489,8 +548,8 @@ repulsion term in the EDA computation.</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -523,7 +582,7 @@ repulsion term in the EDA computation.</p>
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
 </p></div>
       
     </div>
