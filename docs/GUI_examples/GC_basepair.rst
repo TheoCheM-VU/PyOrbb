@@ -30,7 +30,7 @@ Load the calculation
 
 1. Download the example file:
    :download:`Guanine_Cytosine.rkf <./../../examples/ExamplesFromPaper/HydrogenBond/Guanine_Cytosine.rkf>`.
-2. Open PyOrbb and drag the ``.rkf`` file into the application.
+2. Open PyOrbb and drag ``Guanine_Cytosine.rkf`` file into the application.
 3. Uncheck ``Show PR`` to hide the Pauli-repulsive interactions.
 4. Adjust the green orbital-interaction slider until the displayed cumulative
    fraction is **87.5%**.
@@ -54,15 +54,15 @@ Analysis
 --------
 
 .. figure:: figures/HB/HBond.png
-   :width: 75%
+   :width: 100%
    :align: center
    :alt: Fragment orbitals selected for the hydrogen-bonding analysis.
 
-   Orbital interaction diagram at a cumulative fraction of 87.5%.
+   Orbital interaction diagram at a cumulative fraction of 87.5% for orbital interactions.
 
 
 .. figure:: figures/HB/orbitals.png
-   :width: 60%
+   :width: 50%
    :align: center
    :alt: Fragment orbitals selected for the hydrogen-bonding analysis.
 
@@ -73,9 +73,9 @@ Analysis
 Hydrogen-bonding orbitals
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-At this setting, the selected set contains **10 A′-symmetric FMOs**. These
+At this setting, the selected set contains 10 A′-symmetric FMOs. These
 orbitals are symmetric with respect to reflection in the plane of the base
-pair and are involved in sigma-type interactions.
+pair and are involved in |sigma|-type interactions.
 
 Visualization of the FMOs reveals that the virtual FMOs show N–H antibonding character. All selected occupied FMOs
 except Guanine(31A′) show nitrogen- or oxygen-lone-pair character. These
@@ -105,7 +105,7 @@ described in the main article.\ [2]_ It is not assigned a direct
 hydrogen-bonding role in this analysis.
 
 .. figure:: figures/HB/polarization.png
-   :width: 75%
+   :width: 100%
    :align: center
    :alt: Fragment orbitals selected for the hydrogen-bonding analysis.
 
