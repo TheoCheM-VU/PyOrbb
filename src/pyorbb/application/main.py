@@ -322,7 +322,7 @@ class MplCanvas(FigureCanvas):
 
         amsloc = self.parent.parent.settings_dialog.get("Densf", "General", "amsbin")
         if platform.system() == "Windows":
-            preambles = [f'set AMSHOME={os.path.split(self.parent.parent.settings_dialog.get("Densf", "General", "amsbin"))[0]}', f'set AMSBIN={os.path.split(self.parent.parent.settings_dialog.get("Densf", "General", "amsbin"))[0]}/bin']
+            preambles = [f'set AMSHOME={self.parent.parent.settings_dialog.get("Densf", "General", "amsbin")}', f'set AMSBIN={os.path.join(self.parent.parent.settings_dialog.get("Densf", "General", "amsbin"), "bin")}']
         else:
             amsbashrc = os.path.join(amsloc, 'Contents', 'Resources', 'amshome', 'amsbashrc.sh')
             preambles = [f'source {amsbashrc}']
@@ -1982,7 +1982,6 @@ class AnalysisWindow(QtWidgets.QWidget):
         issue_btn.setStyleSheet('QPushButton{border-radius: 15px; font-weight: bold}')
         shadow.apply(issue_btn)
         new_page_layout.addWidget(issue_btn)
-
 
         self.update_icons()
 
