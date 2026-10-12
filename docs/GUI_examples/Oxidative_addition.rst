@@ -62,9 +62,6 @@ Analysis
 
    Schematic drawing of the orbital interaction mechanism including the involved orbitals.
 
-Analysis
-~~~~~~~~
-
 PyOrbb identifies two strong interactions between the fragments that were also identified by Sun, et al.
 The first is between the occupied CH\ :sub:`4`\ (5A)
 and the virtual Fe(CO)\ :sub:`4`\ (42A) FMOs. This is the C–H |sigma|-donation interaction: electrons
