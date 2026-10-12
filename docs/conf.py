@@ -68,6 +68,10 @@ autodoc_default_options = {
 
 modindex_common_prefix = ['template.']
 
+html_context = {
+   "default_mode": "light"
+}
+
 html_theme_options = {
   # "show_toc_level": 2,
   "show_nav_level": 2,
@@ -75,6 +79,7 @@ html_theme_options = {
   # "navbar_end": ["star"],
   "navbar_center": [],
   # "navbar_start": ['logo'],
+    "navbar_end": ["navbar-icon-links"],
 "logo": {
     # In a left-to-right context, screen readers will read the alt text
     # first, then the text, so this example will be read as "P-G-G-P-Y
@@ -118,5 +123,5 @@ rst_epilog = f"""
 .. |AMS| replace:: :program:`AMS`
 .. |ADF| replace:: :program:`ADF`
 .. |densf| replace:: :program:`densf`
-.. |main art| replace:: Yuman Hordijk, Steven E. Beutick, Xiaobo Sun, Laurens Groot, Tori Gijzen, Jordi Poater, Trevor A. Hamlin, F. Matthias Bickelhaupt, Célia Fonseca Guerra, "PyOrbb – Automated Analyses of Orbital-Interaction Mechanisms" *Journal of Computational Chemistry*, **2026**, e70512, DOI=https://doi.org/10.1002/jcc.70512.
+.. |main art| replace:: Y\. Hordijk, S\. E\. Beutick, X\. Sun, L\. Groot, T\. Gijzen, J\. Poater, T\. A\. Hamlin, F\. M\. Bickelhaupt, C\. Fonseca Guerra, "PyOrbb – Automated Analyses of Orbital-Interaction Mechanisms" *J. Comput. Chem.*, **2026**, e70512, DOI: https://doi.org/10.1002/jcc.70512.
 """
