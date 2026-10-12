@@ -111,6 +111,8 @@ rst_epilog = f"""
     :align: middle
     :class: no-scaled-link
 .. |ProjectVersion| replace:: {release}
+.. |pi| replace:: :math:`\\pi`\\ 
+.. |sigma| replace:: :math:`\\sigma`\\ 
 .. |eV| replace:: :math:`\\text{{eV}}`
 .. |kcal/mol| replace:: :math:`\\text{{kcal mol}}^{{-1}}`
 .. |Orbitals| replace:: :class:`~pyorbb.orbitals.objects.Orbitals`
