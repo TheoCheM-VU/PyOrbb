@@ -154,6 +154,10 @@ def draw_interaction(fmos, mos, connections,
         if fmo.fragment not in frags:
             frags.append(fmo.fragment)
 
+    if fragment_order is not None:
+        if not isinstance(fragment_order, dict):
+            fragment_order = {frag: -.5 if i == 0 else i + .5 for i, frag in enumerate(fragment_order)}
+
     if fragment_order is None:
         xtick_order = {mo_column_name: .5}
         for i, frag in enumerate(frags):
@@ -163,11 +167,8 @@ def draw_interaction(fmos, mos, connections,
                 xtick_order[frag] = i + .5
     else:
         xtick_order = {mo_column_name: .5}
-        for i, frag in enumerate(fragment_order):
-            if i == 0:
-                xtick_order[frag] = -.5
-            else:
-                xtick_order[frag] = i + .5
+        for frag in fragment_order:
+            xtick_order[frag] = fragment_order[frag]
 
     ax.set_xlim(-1, len(frags), auto=False)
     sep_orbs = {frag: [fmo for fmo in fmos if fmo.fragment == frag] for frag in frags}
