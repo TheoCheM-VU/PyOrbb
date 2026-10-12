@@ -359,7 +359,7 @@ def to_excel(orbs: pyorbb.Orbitals, out_file: str = 'pyorbb.xlsx'):
         next_row, next_col = make_key_value_table(rows, next_row + 2, 1)
 
 
-    mixer = pyorbb.analysis.mixing.Mixer2(orbs, pr_min_thresh=0.001**2, oi_min_thresh=0.00000001)
+    mixer = pyorbb.analysis.mixing.Mixer(orbs, pr_min_thresh=0.001**2, oi_min_thresh=0.00000001)
     for energy_type in orbs.fmos.energy_types:
         mixer.set_energy_type(energy_type)
         rows = []
@@ -387,8 +387,8 @@ def to_excel(orbs: pyorbb.Orbitals, out_file: str = 'pyorbb.xlsx'):
                      abs(mix.fmos[0].mulliken_contribution(mix.mos[1], normalized=True)),
                      abs(mix.fmos[1].mulliken_contribution(mix.mos[1], normalized=True))))
 
-        energy_label = {'energy': 'regular', 'site_energy': 'effective', 'approx_site_energy': 'effective (approx.)'}[energy_type]
-        energy_label_short = {'energy': 'reg.', 'site_energy': 'eff.', 'approx_site_energy': 'appr.'}[energy_type]
+        energy_label = {'energy': 'regular', 'effective_energy': 'effective', 'approx_effective_energy': 'effective (approx.)'}[energy_type]
+        energy_label_short = {'energy': 'reg.', 'effective_energy': 'eff.', 'approx_effective_energy': 'appr.'}[energy_type]
         
         tooltips = {
             0: 'Fragment molecular orbital ψᵢ.',
