@@ -1199,7 +1199,7 @@ class AnalysisWindow(QtWidgets.QWidget):
         self._set_mix_settings()
         self._draw_diagram(
             ylim=self.ylim,
-            xtick_order=self._xtick_order,
+            fragment_order=self._xtick_order,
             **settings
             )
 
