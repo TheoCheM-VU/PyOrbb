@@ -29,7 +29,7 @@ def main():
     parser = create_parser()
     args = parser.parse_args()
 
-    # if the program was called without a subprogram we simply print the help message
+    # if the program was called without a subprogram we open the GUI
     if args.subprogram is None:
         __main__.main()
         return

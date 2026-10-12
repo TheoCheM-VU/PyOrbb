@@ -1,4 +1,4 @@
-""" Module containing functions for quickly submitting geometry optimization jobs via the command line """
+"""Command-line program for opening the PyOrbb GUI, if a screen is available."""
 import argparse
 
 
@@ -30,4 +30,3 @@ def main(args: argparse.Namespace):
 
     except Exception as e:
         print("".join(traceback.format_exception(type(e), e, e.__traceback__)))
-
