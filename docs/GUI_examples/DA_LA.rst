@@ -1,45 +1,74 @@
 Lewis-Acid Catalysis: Diels-Alder
 ====================================================
 
+Introduction
+------------
+
+.. figure:: figures/DA_TS_LA/intro.png
+   :width: 80%
+   :align: center
+
+   Reaction between isoprene (diene) and methyl acrylate (dienophile) with (green) and without (black) the AlCl\ :math:`_3` Lewis acid catalyst.
+
+Catalysis of Diels-Alder reactions is an important tool in enhancing the reactivity and steering of the regiochemistry of the reactions. Lewis acids form one category of such catalysts and may bind to either the dienophile or diene to modify their electronic properties.\ [1]_\ [2]_ In this example we compare two Diels-Alder reactions between isoprene (diene) and methyl acrylate (dienophile), with one reaction being uncatalyzed, and the other catalyzed by the Lewis acid AlCl\ :math:`_3`\.\ [1]_\ [2]_
+
 Usage
 -----
 
-The adf.rkf files for the uncatalysed and the Lewis-acid catalysed complexes scrutinized in this example, can be downloaded here:
+Load the calculation
+~~~~~~~~~~~~~~~~~~~~
 
-1. **Download** :download:`Uncatalysed_DA.adf.rkf <./../../examples/ExamplesFromPaper/LA_DielsAlder/TS_14.rkf>` and :download:`LA_catalysed_DA.adf.rkf <./../../examples/ExamplesFromPaper/LA_DielsAlder/TS_AlCl3_14.rkf>`
-2. Open the PyOrbb application.
-3. Drag the both .adf.rkf files to the GUI.
+1. Download the example files:
+   :download:`TS_14.rkf <./../../examples/ExamplesFromPaper/LA_DielsAlder/TS_14.rkf>` and :download:`TS_AlCl3_14.rkf <./../../examples/ExamplesFromPaper/LA_DielsAlder/TS_AlCl3_14.rkf>`
+2. Open PyOrbb and drag both ``TS_14.rkf`` and ``TS_AlCl3_14.rkf`` into the application.
+3. Uncheck ``Show OI`` to hide the orbital interactions.
+4. Double-click the "Ester" fragment label in the "TS_14.rkf" tab and rename it to ``Dienophile``.
+5. Double-click the "Ester" fragment label in the "TS_AlCl3_14.rkf" tab and rename it to ``Dienophile-AlCl$_3$``.
 
-Now, the GUI will show two tabs. 
-Each revealing the most important interactions. 
-As the diene fragment is consistent in both complexes, one can select the orbital of interest (:math:`\pi`-HOMO\ :sub:`diene`\ --1) in both tabs to zoom in on what changes in the dienophile upon Lewis-acid coordination. 
+The resulting diagrams are used in the analysis below and should both contain only one Pauli repulsive interactions.
 
-4. Select the orbital of interest
-5. Click the Filter button in the GUI
+.. tip::
+   Fragment renaming accepts LaTeX input by encapsulating the LaTeX text with dollarsigns.
 
 
+Obtaining the overlaps
+~~~~~~~~~~~~~~~~~~~~~~
 
-4. Select the orbital of interest.
-5. Click on the orbital (:math:`\varphi`).
+1. Click on the diene and dienophile FMOs while holding the shift key in the "TS_14.rkf" tab.
+2. Click on the "Orbitals" tab on the right side of the diagram. It should now show you information about the selected orbitals.
+3. Press the "Diene(18A) ± Dienophile(23A)" header to open the information section and note down the overlap (``Sij``).
+4. Do the same for the diagram in the "TS_AlCl3_14.rkf" tab.
 
-Now the PyOrbb viewer window will open with many options for drawing the orbitals.
 
-Once the previous steps have been completed, the user should be able to reproduce the following analysis [1]_ [2]_ [3]_.
+View the orbitals
+~~~~~~~~~~~~~~~~~
 
+1. Select an orbital in the interaction diagram.
+2. Click the orbital-viewer control labelled ``φ``.
+
+Inspect the orbitals on both fragments, using a viewing direction that
+shows the two forming carbon–carbon bonds. Pay special attention to the orbital size of the |pi|-HOMOs of the dienophiles and make note of the amplitudes on the carbon atoms.
 
 Analysis
 --------
 
-The Diels-Alder reaction can be catalyzed by Lewis acids (LA).
-Conventionally, LA catalysis has been explained as a consequence of enhanced reactivity resulting from stronger orbital interactions (*viz.* LUMO-lowering catalysis) :sup:`1b`. 
-In 2020, Vermeeren *et al.* used ASM and EDA methodologies to point out that the enhanced reactivity upon LA-catalysis of the Diels-Alder reaction between isoprene and methyl acrylate was due to the reduced four-electron (Pauli) repulsion (*viz.* Pauli-lowering catalysis). 
-They demonstrated that the LA pulls density away from the dienophile, resulting in a smaller amplitude of occupied :math:`\pi`-orbitals on the C--C double bond of the dienophile. 
-This, in turn, results in less occupied-occupied overlap with the :math:`\pi`-system of the diene and thus less Pauli repulsion.
 
-These insights can be obtained conveniently by applying the PyOrbb program to both the uncatalyzed and LA-catalyzed reaction (see below). 
-To focus on the Pauli lowering effect, we hide the orbital interactions, leaving only the four-electron (Pauli) repulsive interactions in the interactive MO diagram. 
-For both systems, the key interaction was identified to be between the occupied diene (:math:`\pi`-HOMO\ :sub:`diene`\ --1), which is the in-phase combination of the :math:`\pi`-system of the diene, and the :math:`\pi`-bonding orbital in the ester (:math:`\pi`-HOMO\ :sub:`dienophile`\  for both the uncatalyzed and the LA-catalyzed reaction). 
-As reported in the literature, the lowering of the overlap between these two :math:`\pi`-systems upon LA coordination causes the reduced Pauli repulsion.
+.. figure:: figures/DA_TS_LA/diagrams.png
+   :width: 100%
+   :align: center
+   :alt: Fragment orbitals involved in donation and Pauli repulsion at the Diels–Alder transition state.
+
+   Main Pauli repulsive interaction between the diene and the dienophile with (right diagram) and without (left diagram) the AlCl\ :math:`_3` catalyst. The overlap between the FMOs is also provided in the diagrams.
+
+.. figure:: figures/DA_TS_LA/schematic.png
+   :width: 75%
+   :align: center
+   :alt: Fragment orbitals involved in donation and Pauli repulsion at the Diels–Alder transition state.
+
+   Schematic orbital diagram with the corresponding orbitals.
+
+AlCl\ :math:`_3` is a so-called Pauli-lowering catalyst. Due to the mixing of the catalyst with the dienophile, the amplitudes of the |pi|-HOMO on the dienophile carbon atoms arae reduced, leading to reduced overlap with the |pi|-HOMO–1 of the diene. The overlap values reflect this: the overlap between Diene(|pi|-HOMO-1) and Dienophile(|pi|-HOMO) is 0.149, which is reduced to 0.123 when the catalyst is introduced. 
+As discussed in the main article,\ [3]_ and as reported in the literature,\ [1]_\ [2]_ the lowering of the overlap between these two |pi|-orbitals upon coordination of AlCl\ :math:`_3` causes the reduced Pauli repulsion and the reduced activation barrier.
 
 
 References
