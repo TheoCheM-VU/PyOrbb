@@ -1,10 +1,9 @@
 import numpy as np
-from math import sqrt
 from scm import plams
 from pyorbb.nested_dict import NestedDict
 from pyorbb.orbitals import fragments
 
-ensure_list = lambda x: [x] if not isinstance(x, (list, tuple, set)) else list(x)  # noqa: E731
+_ensure_list = lambda x: [x] if not isinstance(x, (list, tuple, set)) else list(x)  # noqa: E731
 
 
 def _first_principal_numbers(nfrozen_cores):
@@ -162,7 +161,7 @@ def _square_matrix(S: np.ndarray) -> np.ndarray:
     # lists are easier to work with in this case
     S = np.atleast_1d(S).tolist()
     size = len(S)
-    n = int(sqrt(.25 + 2*size) - .5)  # number of rows and columns
+    n = int((.25 + 2*size)**.5 - .5)  # number of rows and columns
     Srows = []  # this will hold the first m elements of the row
     for i in range(n):
         # start index will be the number of elements before this row
@@ -178,7 +177,18 @@ def _square_matrix(S: np.ndarray) -> np.ndarray:
     return Srowsfixed
 
 
-def read_data(reader: plams.KFReader, SCF0_reader: plams.KFReader = None, output: str = None):
+def read_data(reader: plams.KFReader, SCF0_reader: plams.KFReader = None, output: str = None) -> NestedDict:
+    '''
+    This is the main function that reads data from an ADF calculation.
+
+    Args:
+        reader: The main KFReader object of the ``adf.rkf`` file of your calculation.
+        SCF0_reader: A companion KFReader object of the same calculation but with 0 SCF cycles. If provided, you will have access to effective energies calculated with the initial density.
+        output: The ADF textual output file of the calculation. If provided, you will have access to the kinetic energies of the molecular orbitals.
+
+    Returns:
+        A dictionary containing all possible data extracted from the ADF calculation. These will be used later to build the |MO| and |FMO| objects.
+    '''
     ## HELPER FUNCTIONS
     def _read_spin_indep(section, variable, spin, R=reader):
         # this function is used to read a section%variable from
@@ -315,11 +325,6 @@ def read_data(reader: plams.KFReader, SCF0_reader: plams.KFReader = None, output
     molecules['complex'] = ret['fragment_data']['complex_molecule']
     ret.set('molecules', molecules)
 
-    # # if we used atomic basis we always have zero spinpol
-    # for frag in ret['fragment_data']['fragment_names']:
-    #     ret['calc_info']['fmo_spinpolarizations'][frag] = {}
-
-
     ret.set('FMOs', 'number', reader.read('SFOs', 'number'))
     # the name of the fragment
     ret.set('FMOs', 'fragment_index', np.atleast_1d(reader.read('SFOs', 'fragment')))
@@ -338,7 +343,7 @@ def read_data(reader: plams.KFReader, SCF0_reader: plams.KFReader = None, output
 
     # some symmetry species can have a subspecies
     # for example, C(3V) symmetry has the E1:1 and E1:2 symmetry species
-    # however, ADF only reports for one of the (general E1 label)
+    # however, ADF only reports for one of the subspecies (general E1 label)
     if ret['calc_info']['used_regions']:
         subspecies_visited_symm_index = {}
         for subsp, ifmo in zip(ret['FMOs']['subspecies'], ret['FMOs']['symmetry_index']):
@@ -350,9 +355,10 @@ def read_data(reader: plams.KFReader, SCF0_reader: plams.KFReader = None, output
             subspecies_visited_symm_index[subsp].append(int(ifmo))
             ret['FMOs']['subspecies_fixed'].append(subsp)
     else:
-        # if we have atomic fragments we might have FMOs with the same name for the same fragment
+        # if we have atomic fragments we might have FMOs with the same name for the same fragment if multiple atoms of the same type exist
         # we should give these unique names as well
         # first get the total number of FMOs that have the same subspecies and fragment
+        # e.g. in the Hydrogen molecule, the H(1S/1), H(1S/2) orbitals will be the bonding and antibonding combinations of the 1S orbitals
         total_counts = {}
         for subsp, ifo, frag in zip(ret['FMOs']['subspecies'], ret['FMOs']['ifo'], ret['FMOs']['fragment_types']):
             total_counts.setdefault(str(frag), {})
@@ -412,13 +418,10 @@ def read_data(reader: plams.KFReader, SCF0_reader: plams.KFReader = None, output
             ret.set('FMOs', 'adf_names', spin, [f'{index + 1}{symlabel}_{spin}' for index, symlabel in zip(ret['FMOs']['ifo'], ret['FMOs']['subspecies_fixed'])])
 
     ret.set('FMOs', 'adf_names', 'total', _compose_vector(ret['FMOs']['adf_names'], ret['calc_info']['fmo_spins']))
-    # construct here the unique names, e.g. ``NH3(4E1:1)`` that contains both the FMO orbital name and its fragment name
-    # ret.set('FMOs', 'unique_names', {spin: [f'{frag}({name})' for frag, name in zip(ret['FMOs']['fragment_unique'][spin], ret['FMOs']['adf_names'][spin])] for spin in ret['calc_info']['fmo_spins']})
-    # ret.set('FMOs', 'unique_names', 'total', _compose_vector(ret['FMOs']['unique_names'], ret['calc_info']['fmo_spins']))
 
     # read the matrix data such as overlaps, coefficients, etc.
     # we correct for the number of frozen cores later
-    ret.set('MOs', 'nfrozencores', {symlabel: ncbs for symlabel, ncbs in zip(ret['calc_info']['symlabels'], ensure_list(reader.read('Symmetry', 'ncbs')))})
+    ret.set('MOs', 'nfrozencores', {symlabel: ncbs for symlabel, ncbs in zip(ret['calc_info']['symlabels'], _ensure_list(reader.read('Symmetry', 'ncbs')))})
     ret.set('MOs', 'nfrozencores', 'total', sum(ret['MOs']['nfrozencores'].values()))
 
     charge_diff = np.atleast_1d(reader.read('Geometry', 'atomtype total charge')) - np.atleast_1d(reader.read('Geometry', 'atomtype effective charge'))
@@ -484,29 +487,17 @@ def read_data(reader: plams.KFReader, SCF0_reader: plams.KFReader = None, output
 
             contr = coefficients * (coefficients @ S)
 
-            contr_pos = abs(contr)
+            # we now also renormalize the Mulliken contributions after removing all negative contributions
             contr_pos = np.maximum(0, contr)
-
             contr_artifact = (np.sum(contr_pos, axis=1, keepdims=True) + np.sum(contr_pos, axis=0, keepdims=True)) / 2
-
             contr_normed = contr_pos / contr_artifact
 
-            # contr_normed = (contr.T / np.sum(np.maximum(0, contr), axis=0)).T
-
-            # import matplotlib.pyplot as plt
-
-            # plt.imshow(contr_artifact)
-            # plt.show()
-            # plt.imshow(contr)
-            # print(contr)
-            # plt.figure()
-            # plt.imshow(contr_normed)
-            # print(contr_normed)
-            # plt.show()
+            # calculate the Mulliken gross populations
+            pops = np.atleast_2d(occupation).T * contr
 
             ret.set('matrices', 'mulliken_contribution', symlabel, mo_spin, contr)
             ret.set('matrices', 'mulliken_contribution_normalized', symlabel, mo_spin, contr_normed)
-            ret.set('matrices', 'mulliken_population', symlabel, mo_spin, np.atleast_2d(occupation).T * contr)
+            ret.set('matrices', 'mulliken_population', symlabel, mo_spin, pops)
 
     ret.set('MOs', 'energy', 'total', np.hstack([_compose_vector(ret['MOs']['energy'][symlabel], ret['calc_info']['mo_spins']) for symlabel in ret['calc_info']['symlabels']]))
     ret.set('MOs', 'occupation', 'total', np.hstack([_compose_vector(ret['MOs']['occupation'][symlabel], ret['calc_info']['mo_spins']) for symlabel in ret['calc_info']['symlabels']]))
