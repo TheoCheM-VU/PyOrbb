@@ -27,7 +27,7 @@ Load the calculation
    :download:`Ethane.rkf <./../../examples/ExamplesFromPaper/HomolyticEthane/Ethane.rkf>`.
 2. Open PyOrbb and drag ``Ethane.rkf`` file into the application.
 3. Drag the "Left" and "Right" fragment labels such that "Left" is on the left side and "Right" on the right.
-4. Double click "Left" fragment label on the x-axis and rename it to ``H$_3$C$\bullet$``.
+4. Double click the "Left" fragment label on the x-axis and rename it to ``H$_3$C$\bullet$``.
 5. Rename the "Right" fragment label to ``$\bullet$CH$_3$``.
 6. Adjust the red Pauli-repulsion slider until the displayed cumulative
    fraction is **96.9%**.
