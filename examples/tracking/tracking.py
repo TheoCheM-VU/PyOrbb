@@ -12,7 +12,7 @@ import pyorbb
 import os
 import matplotlib.pyplot as plt
 import numpy as np
-import moviepy.editor as mvp
+import moviepy as mvp
 
 
 # obtain all adf.rkf files
@@ -36,6 +36,12 @@ distances = [distances[i] for i in distance_order]
 # make the directory to store the frames in
 os.makedirs('frames', exist_ok=True)
 
+
+def find_mos(fmo1, fmo2):
+    # first parent is the FMOs object, its parent is the Orbitals object containing the MOs
+    mos = fmo1.parent.parent.mos
+
+
 # for each Orbitals object generate the diagram and save it to a file
 # we want to also show the energy gaps and overlaps
 frames = []
@@ -45,48 +51,43 @@ egaps1 = []
 egaps2 = []
 for i, orb in enumerate(orbs):
     fig, axes = plt.subplots(1, 3, figsize=(6.4*2, 4.8))
+
     # the first interaction
-    Pd_5s = orb.sfos['Pd(5S)']
-    sub_lumo = orb.sfos['Substrate(HOMO)']
-    mos = [orb.mos['21AA'], orb.mos['17AA']]
-    mix1 = pyorbb.analysis.mixing.Mixing(
-        orb,
-        sfos=[Pd_5s, sub_lumo], 
-        mos=mos,
-        connection_colors='b')
+    Pd_5s = orb.fmos['Pd(5S)']
+    sub_homo = orb.fmos['Substrate(HOMO)']
 
-    overlaps1.append(abs(Pd_5s @ sub_lumo))
-    egaps1.append(abs(Pd_5s.energy - sub_lumo.energy))
-
+    overlaps1.append(abs(Pd_5s @ sub_homo))
+    egaps1.append(abs(Pd_5s.energy - sub_homo.energy))
 
     # the second interaction
-    Pd_4d = orb.sfos['Pd(2D:x2-y2)']
-    sub_homo = orb.sfos['Substrate(LUMO)']
-    mos = [orb.mos['22AA'], orb.mos['18AA']]
-    mix2 = pyorbb.analysis.mixing.Mixing(
-        orb,
-        sfos=[Pd_4d, sub_homo], 
-        mos=mos,
-        connection_colors='r')
+    Pd_4d = orb.fmos['Pd(4D:x2-y2)']
+    sub_lumo = orb.fmos['Substrate(LUMO)']
+    mos = [orb.mos['22AA'], orb.mos['21AA'], orb.mos['18AA'], orb.mos['17AA']]
 
-    overlaps2.append(abs(Pd_4d @ sub_homo))
-    egaps2.append(abs(Pd_4d.energy - sub_homo.energy))
+    overlaps2.append(abs(Pd_4d @ sub_lumo))
+    egaps2.append(abs(Pd_4d.energy - sub_lumo.energy))
 
+    connection_colors = {
+        (Pd_5s, mos[0]): 'b',
+        (Pd_5s, mos[3]): 'b',
+        (sub_homo, mos[0]): 'b',
+        (sub_homo, mos[3]): 'b',
+        (Pd_4d, mos[1]): 'r',
+        (Pd_4d, mos[2]): 'r',
+        (sub_lumo, mos[1]): 'r',
+        (sub_lumo, mos[2]): 'r',
+        }
+    pyorbb.plotting.orbital_diagram.draw_interaction([Pd_5s, Pd_4d, sub_homo, sub_lumo], mos, connection_colors.keys(), connection_types=connection_colors, ax=axes[0], ylim=(-12, 2), fragment_order=['Pd', 'Substrate'])
 
-    # add the two mixings together
-    main_mix = mix1 + mix2
-
-    # draw the diagrams
-    main_mix.draw_diagram(ax=axes[0], ylim=(-13, 2))
     plt.suptitle(f'C-H distance: {distances[i]: .2f} Å')
 
     # and then plot the overlaps
     axes[1].plot(distances[:i+1], overlaps1, label=r'$\langle 5S | 4AA \rangle$', c='b')
-    axes[1].plot(distances[:i+1], overlaps2, label=r'$\langle 2D:x2-y2 | 5AA \rangle$', c='r')
+    axes[1].plot(distances[:i+1], overlaps2, label=r'$\langle 4D:x2-y2 | 5AA \rangle$', c='r')
 
     # and energy gaps
     axes[2].plot(distances[:i+1], egaps1, label=r'$| \varepsilon_{5S} - \varepsilon_{4AA} |$', c='b')
-    axes[2].plot(distances[:i+1], egaps2, label=r'$| \varepsilon_{2D:x2-y2} - \varepsilon_{5AA} |$', c='r')
+    axes[2].plot(distances[:i+1], egaps2, label=r'$| \varepsilon_{4D:x2-y2} - \varepsilon_{5AA} |$', c='r')
 
     # set some limits and labels
     axes[1].set_xlim(min(distances), max(distances))
@@ -113,7 +114,6 @@ for i, orb in enumerate(orbs):
 
 
 # take the file locations of the frames we saved and make a movie
-clips = [mvp.ImageClip(frame).set_duration(1/14) for frame in frames]
+clips = [mvp.ImageClip(frame).with_duration(1/14) for frame in frames]
 concat_clip = mvp.concatenate_videoclips(clips, method="compose")
 concat_clip.write_videofile('orbint.mp4', fps=14)
-concat_clip.write_gif('orbint.gif', fps=14)

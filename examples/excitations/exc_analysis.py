@@ -9,8 +9,9 @@ and the donating orbital for the transition should have at least 90% Donor fragm
 and the accepting orbital should have at least 90% Acceptor fragment character.
 '''
 
-import tcutility.results2
+import tcmu
 import pyorbb
+from scm import plams
 
 # exc should have wl of at least 300
 wavelength_thresh          = 300
@@ -23,15 +24,15 @@ donor_thresh               = 0.9
 # and the acceptor character of the accepting MO should be at least 90%
 acceptor_thresh            = 0.9
 
-# we need to load the calculation with tcutility to read the excitation data
-# it will be stored in the ``properties.excitations`` attribute.
-res = tcutility.results2.read('excitations.adf.rkf')
+# we need to load the results with tcmu to read the excitation data
+# here we directly call the excitation reading function of tcmu
+excitation_data = tcmu.results.adf._read_excitations(plams.KFReader('excitations.adf.rkf'))
+
 # also load the orbital objects
 orbs = pyorbb.Orbitals('excitations.adf.rkf')
 
 # the excitation data is sorted by the irrep (only 'A' for this system) 
 # and the excitation type (only 'SS' = singlet-singlet for this system)
-excitation_data = res['properties']['excitations']
 for irrep, irrep_data in excitation_data.items():
     for excitation_type, data  in irrep_data.items():
         for exc_index in range(data['number_of_excitations']):

@@ -337,5 +337,7 @@ def draw_interaction(fmos, mos, connections,
             c = OI_color
         elif typ == 'Sanitization':
             c = sanitization_color
+        else:
+            c = typ
 
         ax.plot([psfo, pmo], [getattr(fmo, energy_type), mo.energy], c=c, linewidth=connection_width, alpha=np.clip(fmo.mulliken_contribution(mo), *alpha_range), gid=f'MIX_{sfo_index} -> {mo_index}', zorder=-10)

@@ -1368,8 +1368,24 @@ class OrbitalSelector:
         # this ensures that if we select for instance "C(1P:x)" we match ALL carbons
         # if we match "C:1(1P:x)" we match only the first carbon
         if fragment is not None:
-            orbs = [orb for orb in orbs if orb.fragment in _ensure_list(fragment)]
+            # atomic fragments can be given generally as 'C' or specifically for a given atom as 'C:1'
+            # if the user gives a fragment name in the general form, 
+            # we want to give all fragments that start with 'C'
+            # so we construct a new list
+            # first get all fragments available for the orbitals
+            all_fragments = set(orb.fragment for orb in orbs)
+            new_fragment = []
+            # if there is a ':' in the fragment name then it is a specific atom so we add it to the list
+            # otherwise we check which fragments correspond with the general name
+            for frag in _ensure_list(fragment):
+                if ':' in frag:
+                    new_fragment.append(frag)
+                else:
+                    new_fragment.extend([sub_frag for sub_frag in all_fragments if sub_frag.split(':')[0] == frag])
 
+            fragment = new_fragment
+            
+            orbs = [orb for orb in orbs if orb.fragment in fragment]
         if fragment_index is not None:
             orbs = [orb for orb in orbs if orb.fragment_index in _ensure_list(fragment_index)]
 

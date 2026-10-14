@@ -11,14 +11,14 @@ with Good numerical quality.
 import pyorbb
 import os
 import numpy as np
-import moviepy.editor as mvp
+import moviepy as mvp
 import tcviewer
 from typing import List
 import cv2
 
 
 # obtain all adf.rkf files
-files = [os.path.join('OxAdd_rkfs', file) for file in os.listdir('OxAdd_rkfs') if file.endswith('.adf.rkf')]
+files = [os.path.join('../tracking/OxAdd_rkfs', file) for file in os.listdir('../tracking/OxAdd_rkfs') if file.endswith('.adf.rkf')]
 # then load the Orbitals objects
 orbs = [pyorbb.Orbitals(file) for file in files]
 
@@ -36,7 +36,7 @@ distances = [distances[i] for i in distance_order]
 
 
 
-def make_frames(orbs: List[pyorbb.Orbitals], sfo1_name: str, sfo2_name: str, frames_dir: str) -> List[str]:
+def make_frames(orbs: List[pyorbb.Orbitals], fmo1_name: str, fmo2_name: str, frames_dir: str) -> List[str]:
     # create a directory to store the frames in
     os.makedirs(frames_dir, exist_ok=True)
     frames = []
@@ -49,23 +49,22 @@ def make_frames(orbs: List[pyorbb.Orbitals], sfo1_name: str, sfo2_name: str, fra
         if os.path.exists(frame_file):
             continue
 
-        # obtain the SFOs
-        sfo1 = orb.sfos[sfo1_name]
-        sfo2 = orb.sfos[sfo2_name]
+        # obtain the fmos
+        fmo1 = orb.fmos[fmo1_name]
+        fmo2 = orb.fmos[fmo2_name]
 
         # generate the cube-files
         # all rkf file are in the same directory,
         # we therefore pass a custom prefix to prevent
         # cube files from being overwritten
-        cube_file_prefix = orb.kfpath.split('.')[0]
-        cub1 = sfo1.cube_file(cube_file_prefix=cube_file_prefix)
-        cub2 = sfo2.cube_file(cube_file_prefix=cube_file_prefix)
+        cub1 = fmo1.vtk_file()
+        cub2 = fmo2.vtk_file()
 
         # calculate the overlap cube file
         cub1.values *= cub2.values
         # to fix erroneous switching of the sign of the overlap grid
         # we multiply by the sign of the overlap given by ADF
-        cub1.values *= (sfo1 @ sfo2) / abs(sfo1 @ sfo2)
+        cub1.values *= (fmo1 @ fmo2) / abs(fmo1 @ fmo2)
 
         # open a new screen and draw the overlap grid and molecule
         with tcviewer.Screen(headless=True) as scr:
@@ -75,7 +74,7 @@ def make_frames(orbs: List[pyorbb.Orbitals], sfo1_name: str, sfo2_name: str, fra
                 scene.draw_isosurface(cub1, isovalue=-0.005, color=(0, 1, 0), shininess=1, opacity=.5)
 
             # draw some informational text
-            scene.draw_text(f'{sfo1_name}\n{sfo2_name}\nS = {abs(sfo1@sfo2): .2f}, Δϵ = {sfo1.energy - sfo2.energy: .1f} eV', fontsize=18)
+            scene.draw_text(f'{fmo1_name}\n{fmo2_name}\nS = {abs(fmo1@fmo2): .2f}, Δϵ = {fmo1.energy - fmo2.energy: .1f} eV', fontsize=18)
             # generate a frame
             scene.screenshot(frame_file)
 
@@ -83,7 +82,7 @@ def make_frames(orbs: List[pyorbb.Orbitals], sfo1_name: str, sfo2_name: str, fra
 
 
 # 4D/LUMO interaction
-frames1 = make_frames(orbs, 'Pd(2D:x2-y2)', 'Substrate(5AA)', 'frames_int1')
+frames1 = make_frames(orbs, 'Pd(4D:x2-y2)', 'Substrate(5AA)', 'frames_int1')
 # 5S/HOMO interaction
 frames2 = make_frames(orbs, 'Pd(5S)', 'Substrate(4AA)', 'frames_int2')
 
@@ -105,11 +104,6 @@ for i, (frame1, frame2) in enumerate(zip(frames1, frames2)):
 
 
 # take the file locations of the frames we saved and make a movie
-clips = [mvp.ImageClip(frame).set_duration(1/14) for frame in final_frames]
+clips = [mvp.ImageClip(frame).with_duration(1/14) for frame in final_frames]
 concat_clip = mvp.concatenate_videoclips(clips, method="compose")
 concat_clip.write_videofile('orbitals.mp4', fps=14)
-
-clips = [mvp.ImageClip(frame).set_duration(1/14) for frame in frames1]
-concat_clip = mvp.concatenate_videoclips(clips, method="compose")
-concat_clip.write_gif('orbitals.gif', fps=14)
-
