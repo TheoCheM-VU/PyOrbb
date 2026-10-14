@@ -1616,7 +1616,7 @@ class AnalysisWindow(QtWidgets.QWidget):
         notices_frame.setLayout(notices_layout)
         notices_frame.setSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
 
-        more_info_label = QtWidgets.QLabel('<a href=\"http://google.com/\">Click here for more information about notices</a>')
+        more_info_label = QtWidgets.QLabel('<a href=\"https://theochem-vu.github.io/PyOrbb/notices.html/\">Click here for more information about notices</a>')
         more_info_label.setTextFormat(QtCore.Qt.RichText)
         more_info_label.setTextInteractionFlags(QtCore.Qt.TextBrowserInteraction)
         more_info_label.setOpenExternalLinks(True)
