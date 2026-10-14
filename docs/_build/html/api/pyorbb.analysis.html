@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="../" data-theme="light">
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>analysis &#8212; PyOrbb v0.12.19 documentation</title>
+    <title>analysis &#8212; PyOrbb v1.0.0 documentation</title>
   
   
   
   <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   <!--
     this give us a css class that will be invisible only if js is disabled
@@ -26,19 +26,19 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <script defer src="../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../_static/documentation_options.js?v=70681d04"></script>
+    <script src="../_static/documentation_options.js?v=76e2d817"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
@@ -51,6 +51,7 @@
     <link rel="next" title="mixing" href="pyorbb.analysis.mixing.html" />
     <link rel="prev" title="PyOrbb API" href="pyorbb.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
   
@@ -60,7 +61,7 @@
     <script src="../searchindex.js"></script>
   
   </head>
-  <body data-default-mode="">
+  <body data-default-mode="light">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
@@ -121,14 +122,12 @@
   
     
     
-      
-    
     
     <img src="../_static/icon_12.png" class="logo__image only-light" alt=""/>
     <img src="../_static/icon_12.png" class="logo__image only-dark pst-js-only" alt=""/>
   
   
-    <p class="title logo__title">PyOrbb v0.12.19 documentation</p>
+    <p class="title logo__title">PyOrbb v1.0.0 documentation</p>
   
 </a></div>
     
@@ -149,21 +148,6 @@
 </button>
         </div>
       
-      
-        <div class="navbar-item">
-
-<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
-  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
-    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
-  </button>
-  <ul class="dropdown-menu dropdown-menu-end">
-    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
-    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
-    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
-  </ul>
-</div></div>
       
     </div>
     
@@ -205,25 +189,6 @@
     
     
     
-      <div class="sidebar-header-items__end">
-        
-          <div class="navbar-item">
-
-<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
-  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
-    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
-  </button>
-  <ul class="dropdown-menu dropdown-menu-end">
-    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
-    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
-    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
-  </ul>
-</div></div>
-        
-      </div>
-    
   </div>
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
@@ -240,17 +205,17 @@
   </p>
   <div class="bd-toc-item navbar-nav">
     <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation Manual PyOrbb v0.12.19</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation Manual PyOrbb v1.0.0</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../application.html">PyOrbb Application</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../notices.html">Warnings and Errors in PyOrbb</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../GUI_examples/index.html">Example PyOrbb Analyses</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../get_started.html">Getting Started: H<sub>3</sub>B←NH<sub>3</sub> Lewis Adduct</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../GUI_examples/Oxidative_addition.html">Oxidative Addition: C-–H Bond Activation by Fe(CO)4</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../GUI_examples/DielsAlder.html">Diels-Alder Transition State</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../GUI_examples/Oxidative_addition.html">Oxidative Addition: C–H Bond Activation by Fe(CO)<sub>4</sub></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../GUI_examples/DielsAlder.html">Diels–Alder Transition State</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../GUI_examples/DA_LA.html">Lewis-Acid Catalysis: Diels-Alder</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../GUI_examples/GC_basepair.html">Hydrogen-Bonding: Guanine–Cytosine Base Pair</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../GUI_examples/GC_basepair.html">Hydrogen Bonding in the Guanine–Cytosine Base Pair</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../GUI_examples/Hetero_vs_homo.html">Hetero- and Homolytic Bond Cleavage of Fluoromethane</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../GUI_examples/Homolytic_Ethane.html">C–-C Bond Formation in Ethane</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../GUI_examples/Homolytic_Ethane.html">C–C Bond Formation in Ethane</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../GUI_examples/Methyl_rad.html">Formation of the Methyl Radical</a></li>
 </ul>
 </details></li>
@@ -482,8 +447,8 @@
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -516,7 +481,7 @@
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
 </p></div>
       
     </div>
