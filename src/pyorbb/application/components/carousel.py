@@ -273,7 +273,7 @@ class PublicationCarousel(Carousel):
         self.themechange()
 
     def setup(self):
-        url = "https://scholar.google.com/scholar?cites=8000893946037734095&scisbd=1"
+        url = "https://scholar.google.com/scholar?cites=11369503600892027597&scisbd=1"
         # try to get data
         try:
             data = _get_citedby_data(url)
@@ -287,11 +287,14 @@ class PublicationCarousel(Carousel):
             self._carousel_layout.addWidget(QtWidgets.QLabel('Sorry! Could not find the right data.'))
             return
 
-        for row in data:
-            try:
-                self._carousel_layout.addWidget(PublicationWidget(self, row))
-            except:  # noqa
-                pass
+        if len(data) > 0:
+            for row in data:
+                try:
+                    self._carousel_layout.addWidget(PublicationWidget(self, row))
+                except:  # noqa
+                    pass
+        else:
+            self._carousel_layout.addWidget(QtWidgets.QLabel('No publications yet.'))
 
         self._carousel_layout.addStretch()
 
@@ -305,4 +308,4 @@ class PublicationCarousel(Carousel):
 
 
 if __name__ == '__main__':
-    print(_get_citedby_data("https://scholar.google.com/scholar?cites=8000893946037734095&scisbd=1"))
+    print(_get_citedby_data("https://scholar.google.com/scholar?cites=11369503600892027597"))
