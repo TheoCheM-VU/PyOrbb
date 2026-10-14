@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyorbb.plotting.orbital_diagram &#8212; PyOrbb v1.0.0 documentation</title>
+    <title>pyorbb.plotting.orbital_diagram &#8212; PyOrbb v1.0.1 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../../../_static/documentation_options.js?v=76e2d817"></script>
+    <script src="../../../_static/documentation_options.js?v=d29a5c0e"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
@@ -124,7 +124,7 @@
     <img src="../../../_static/icon_12.png" class="logo__image only-dark pst-js-only" alt=""/>
   
   
-    <p class="title logo__title">PyOrbb v1.0.0 documentation</p>
+    <p class="title logo__title">PyOrbb v1.0.1 documentation</p>
   
 </a></div>
     
@@ -589,6 +589,8 @@
             <span class="n">c</span> <span class="o">=</span> <span class="n">OI_color</span>
         <span class="k">elif</span> <span class="n">typ</span> <span class="o">==</span> <span class="s1">'Sanitization'</span><span class="p">:</span>
             <span class="n">c</span> <span class="o">=</span> <span class="n">sanitization_color</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">typ</span>
 
         <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">psfo</span><span class="p">,</span> <span class="n">pmo</span><span class="p">],</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">fmo</span><span class="p">,</span> <span class="n">energy_type</span><span class="p">),</span> <span class="n">mo</span><span class="o">.</span><span class="n">energy</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">connection_width</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">fmo</span><span class="o">.</span><span class="n">mulliken_contribution</span><span class="p">(</span><span class="n">mo</span><span class="p">),</span> <span class="o">*</span><span class="n">alpha_range</span><span class="p">),</span> <span class="n">gid</span><span class="o">=</span><span class="sa">f</span><span class="s1">'MIX_</span><span class="si">{</span><span class="n">sfo_index</span><span class="si">}</span><span class="s1"> -&gt; </span><span class="si">{</span><span class="n">mo_index</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">10</span><span class="p">)</span></div>
 

@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyorbb.orbitals.objects &#8212; PyOrbb v1.0.0 documentation</title>
+    <title>pyorbb.orbitals.objects &#8212; PyOrbb v1.0.1 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../../../_static/documentation_options.js?v=76e2d817"></script>
+    <script src="../../../_static/documentation_options.js?v=d29a5c0e"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
@@ -124,7 +124,7 @@
     <img src="../../../_static/icon_12.png" class="logo__image only-dark pst-js-only" alt=""/>
   
   
-    <p class="title logo__title">PyOrbb v1.0.0 documentation</p>
+    <p class="title logo__title">PyOrbb v1.0.1 documentation</p>
   
 </a></div>
     
@@ -1679,8 +1679,24 @@
         <span class="c1"># this ensures that if we select for instance "C(1P:x)" we match ALL carbons</span>
         <span class="c1"># if we match "C:1(1P:x)" we match only the first carbon</span>
         <span class="k">if</span> <span class="n">fragment</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">orbs</span> <span class="o">=</span> <span class="p">[</span><span class="n">orb</span> <span class="k">for</span> <span class="n">orb</span> <span class="ow">in</span> <span class="n">orbs</span> <span class="k">if</span> <span class="n">orb</span><span class="o">.</span><span class="n">fragment</span> <span class="ow">in</span> <span class="n">_ensure_list</span><span class="p">(</span><span class="n">fragment</span><span class="p">)]</span>
+            <span class="c1"># atomic fragments can be given generally as 'C' or specifically for a given atom as 'C:1'</span>
+            <span class="c1"># if the user gives a fragment name in the general form, </span>
+            <span class="c1"># we want to give all fragments that start with 'C'</span>
+            <span class="c1"># so we construct a new list</span>
+            <span class="c1"># first get all fragments available for the orbitals</span>
+            <span class="n">all_fragments</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">orb</span><span class="o">.</span><span class="n">fragment</span> <span class="k">for</span> <span class="n">orb</span> <span class="ow">in</span> <span class="n">orbs</span><span class="p">)</span>
+            <span class="n">new_fragment</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="c1"># if there is a ':' in the fragment name then it is a specific atom so we add it to the list</span>
+            <span class="c1"># otherwise we check which fragments correspond with the general name</span>
+            <span class="k">for</span> <span class="n">frag</span> <span class="ow">in</span> <span class="n">_ensure_list</span><span class="p">(</span><span class="n">fragment</span><span class="p">):</span>
+                <span class="k">if</span> <span class="s1">':'</span> <span class="ow">in</span> <span class="n">frag</span><span class="p">:</span>
+                    <span class="n">new_fragment</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">frag</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">new_fragment</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">sub_frag</span> <span class="k">for</span> <span class="n">sub_frag</span> <span class="ow">in</span> <span class="n">all_fragments</span> <span class="k">if</span> <span class="n">sub_frag</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">':'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">frag</span><span class="p">])</span>
 
+            <span class="n">fragment</span> <span class="o">=</span> <span class="n">new_fragment</span>
+            
+            <span class="n">orbs</span> <span class="o">=</span> <span class="p">[</span><span class="n">orb</span> <span class="k">for</span> <span class="n">orb</span> <span class="ow">in</span> <span class="n">orbs</span> <span class="k">if</span> <span class="n">orb</span><span class="o">.</span><span class="n">fragment</span> <span class="ow">in</span> <span class="n">fragment</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">fragment_index</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">orbs</span> <span class="o">=</span> <span class="p">[</span><span class="n">orb</span> <span class="k">for</span> <span class="n">orb</span> <span class="ow">in</span> <span class="n">orbs</span> <span class="k">if</span> <span class="n">orb</span><span class="o">.</span><span class="n">fragment_index</span> <span class="ow">in</span> <span class="n">_ensure_list</span><span class="p">(</span><span class="n">fragment_index</span><span class="p">)]</span>
 
