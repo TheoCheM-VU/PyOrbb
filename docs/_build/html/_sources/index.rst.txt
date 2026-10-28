@@ -35,7 +35,7 @@
       Visit the open source PyOrbb GitHub repository.
 
     .. grid-item-card:: Problems?
-      :link: https://github.com/TheoChem-VU/TCMU/issues/new
+      :link: https://github.com/TheoChem-VU/PyOrbb/issues/new
 
       .. image:: _static/images/cards/question_mark.png
          :width: 100px
