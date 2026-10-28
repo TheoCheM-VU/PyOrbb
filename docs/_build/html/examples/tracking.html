@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Orbital Interaction Mechanism Along a Reaction Pathway &#8212; PyOrbb v1.0.0 documentation</title>
+    <title>Orbital Interaction Mechanism Along a Reaction Pathway &#8212; PyOrbb v1.0.2 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../_static/documentation_options.js?v=76e2d817"></script>
+    <script src="../_static/documentation_options.js?v=e562d664"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
@@ -127,7 +127,7 @@
     <img src="../_static/icon_12.png" class="logo__image only-dark pst-js-only" alt=""/>
   
   
-    <p class="title logo__title">PyOrbb v1.0.0 documentation</p>
+    <p class="title logo__title">PyOrbb v1.0.2 documentation</p>
   
 </a></div>
     
@@ -205,7 +205,7 @@
   </p>
   <div class="bd-toc-item navbar-nav">
     <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation Manual PyOrbb v1.0.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation Manual PyOrbb v1.0.2</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../application.html">PyOrbb Application</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../notices.html">Warnings and Errors in PyOrbb</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../GUI_examples/index.html">Example PyOrbb Analyses</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -356,7 +356,7 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">moviepy.editor</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mvp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">moviepy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mvp</span>
 
 
 <span class="c1"># obtain all adf.rkf files</span>
@@ -380,6 +380,12 @@
 <span class="c1"># make the directory to store the frames in</span>
 <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s1">'frames'</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
+
+<span class="k">def</span><span class="w"> </span><span class="nf">find_mos</span><span class="p">(</span><span class="n">fmo1</span><span class="p">,</span> <span class="n">fmo2</span><span class="p">):</span>
+    <span class="c1"># first parent is the FMOs object, its parent is the Orbitals object containing the MOs</span>
+    <span class="n">mos</span> <span class="o">=</span> <span class="n">fmo1</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mos</span>
+
+
 <span class="c1"># for each Orbitals object generate the diagram and save it to a file</span>
 <span class="c1"># we want to also show the energy gaps and overlaps</span>
 <span class="n">frames</span> <span class="o">=</span> <span class="p">[]</span>
@@ -389,48 +395,43 @@
 <span class="n">egaps2</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">orb</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">orbs</span><span class="p">):</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">6.4</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="mf">4.8</span><span class="p">))</span>
+
     <span class="c1"># the first interaction</span>
-    <span class="n">Pd_5s</span> <span class="o">=</span> <span class="n">orb</span><span class="o">.</span><span class="n">sfos</span><span class="p">[</span><span class="s1">'Pd(5S)'</span><span class="p">]</span>
-    <span class="n">sub_lumo</span> <span class="o">=</span> <span class="n">orb</span><span class="o">.</span><span class="n">sfos</span><span class="p">[</span><span class="s1">'Substrate(HOMO)'</span><span class="p">]</span>
-    <span class="n">mos</span> <span class="o">=</span> <span class="p">[</span><span class="n">orb</span><span class="o">.</span><span class="n">mos</span><span class="p">[</span><span class="s1">'21AA'</span><span class="p">],</span> <span class="n">orb</span><span class="o">.</span><span class="n">mos</span><span class="p">[</span><span class="s1">'17AA'</span><span class="p">]]</span>
-    <span class="n">mix1</span> <span class="o">=</span> <span class="n">pyorbb</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">mixing</span><span class="o">.</span><span class="n">Mixing</span><span class="p">(</span>
-        <span class="n">orb</span><span class="p">,</span>
-        <span class="n">sfos</span><span class="o">=</span><span class="p">[</span><span class="n">Pd_5s</span><span class="p">,</span> <span class="n">sub_lumo</span><span class="p">],</span> 
-        <span class="n">mos</span><span class="o">=</span><span class="n">mos</span><span class="p">,</span>
-        <span class="n">connection_colors</span><span class="o">=</span><span class="s1">'b'</span><span class="p">)</span>
+    <span class="n">Pd_5s</span> <span class="o">=</span> <span class="n">orb</span><span class="o">.</span><span class="n">fmos</span><span class="p">[</span><span class="s1">'Pd(5S)'</span><span class="p">]</span>
+    <span class="n">sub_homo</span> <span class="o">=</span> <span class="n">orb</span><span class="o">.</span><span class="n">fmos</span><span class="p">[</span><span class="s1">'Substrate(HOMO)'</span><span class="p">]</span>
 
-    <span class="n">overlaps1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">Pd_5s</span> <span class="o">@</span> <span class="n">sub_lumo</span><span class="p">))</span>
-    <span class="n">egaps1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">Pd_5s</span><span class="o">.</span><span class="n">energy</span> <span class="o">-</span> <span class="n">sub_lumo</span><span class="o">.</span><span class="n">energy</span><span class="p">))</span>
-
+    <span class="n">overlaps1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">Pd_5s</span> <span class="o">@</span> <span class="n">sub_homo</span><span class="p">))</span>
+    <span class="n">egaps1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">Pd_5s</span><span class="o">.</span><span class="n">energy</span> <span class="o">-</span> <span class="n">sub_homo</span><span class="o">.</span><span class="n">energy</span><span class="p">))</span>
 
     <span class="c1"># the second interaction</span>
-    <span class="n">Pd_4d</span> <span class="o">=</span> <span class="n">orb</span><span class="o">.</span><span class="n">sfos</span><span class="p">[</span><span class="s1">'Pd(2D:x2-y2)'</span><span class="p">]</span>
-    <span class="n">sub_homo</span> <span class="o">=</span> <span class="n">orb</span><span class="o">.</span><span class="n">sfos</span><span class="p">[</span><span class="s1">'Substrate(LUMO)'</span><span class="p">]</span>
-    <span class="n">mos</span> <span class="o">=</span> <span class="p">[</span><span class="n">orb</span><span class="o">.</span><span class="n">mos</span><span class="p">[</span><span class="s1">'22AA'</span><span class="p">],</span> <span class="n">orb</span><span class="o">.</span><span class="n">mos</span><span class="p">[</span><span class="s1">'18AA'</span><span class="p">]]</span>
-    <span class="n">mix2</span> <span class="o">=</span> <span class="n">pyorbb</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">mixing</span><span class="o">.</span><span class="n">Mixing</span><span class="p">(</span>
-        <span class="n">orb</span><span class="p">,</span>
-        <span class="n">sfos</span><span class="o">=</span><span class="p">[</span><span class="n">Pd_4d</span><span class="p">,</span> <span class="n">sub_homo</span><span class="p">],</span> 
-        <span class="n">mos</span><span class="o">=</span><span class="n">mos</span><span class="p">,</span>
-        <span class="n">connection_colors</span><span class="o">=</span><span class="s1">'r'</span><span class="p">)</span>
+    <span class="n">Pd_4d</span> <span class="o">=</span> <span class="n">orb</span><span class="o">.</span><span class="n">fmos</span><span class="p">[</span><span class="s1">'Pd(4D:x2-y2)'</span><span class="p">]</span>
+    <span class="n">sub_lumo</span> <span class="o">=</span> <span class="n">orb</span><span class="o">.</span><span class="n">fmos</span><span class="p">[</span><span class="s1">'Substrate(LUMO)'</span><span class="p">]</span>
+    <span class="n">mos</span> <span class="o">=</span> <span class="p">[</span><span class="n">orb</span><span class="o">.</span><span class="n">mos</span><span class="p">[</span><span class="s1">'22AA'</span><span class="p">],</span> <span class="n">orb</span><span class="o">.</span><span class="n">mos</span><span class="p">[</span><span class="s1">'21AA'</span><span class="p">],</span> <span class="n">orb</span><span class="o">.</span><span class="n">mos</span><span class="p">[</span><span class="s1">'18AA'</span><span class="p">],</span> <span class="n">orb</span><span class="o">.</span><span class="n">mos</span><span class="p">[</span><span class="s1">'17AA'</span><span class="p">]]</span>
 
-    <span class="n">overlaps2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">Pd_4d</span> <span class="o">@</span> <span class="n">sub_homo</span><span class="p">))</span>
-    <span class="n">egaps2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">Pd_4d</span><span class="o">.</span><span class="n">energy</span> <span class="o">-</span> <span class="n">sub_homo</span><span class="o">.</span><span class="n">energy</span><span class="p">))</span>
+    <span class="n">overlaps2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">Pd_4d</span> <span class="o">@</span> <span class="n">sub_lumo</span><span class="p">))</span>
+    <span class="n">egaps2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">Pd_4d</span><span class="o">.</span><span class="n">energy</span> <span class="o">-</span> <span class="n">sub_lumo</span><span class="o">.</span><span class="n">energy</span><span class="p">))</span>
 
+    <span class="n">connection_colors</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="p">(</span><span class="n">Pd_5s</span><span class="p">,</span> <span class="n">mos</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span> <span class="s1">'b'</span><span class="p">,</span>
+        <span class="p">(</span><span class="n">Pd_5s</span><span class="p">,</span> <span class="n">mos</span><span class="p">[</span><span class="mi">3</span><span class="p">]):</span> <span class="s1">'b'</span><span class="p">,</span>
+        <span class="p">(</span><span class="n">sub_homo</span><span class="p">,</span> <span class="n">mos</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span> <span class="s1">'b'</span><span class="p">,</span>
+        <span class="p">(</span><span class="n">sub_homo</span><span class="p">,</span> <span class="n">mos</span><span class="p">[</span><span class="mi">3</span><span class="p">]):</span> <span class="s1">'b'</span><span class="p">,</span>
+        <span class="p">(</span><span class="n">Pd_4d</span><span class="p">,</span> <span class="n">mos</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span> <span class="s1">'r'</span><span class="p">,</span>
+        <span class="p">(</span><span class="n">Pd_4d</span><span class="p">,</span> <span class="n">mos</span><span class="p">[</span><span class="mi">2</span><span class="p">]):</span> <span class="s1">'r'</span><span class="p">,</span>
+        <span class="p">(</span><span class="n">sub_lumo</span><span class="p">,</span> <span class="n">mos</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span> <span class="s1">'r'</span><span class="p">,</span>
+        <span class="p">(</span><span class="n">sub_lumo</span><span class="p">,</span> <span class="n">mos</span><span class="p">[</span><span class="mi">2</span><span class="p">]):</span> <span class="s1">'r'</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="n">pyorbb</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">orbital_diagram</span><span class="o">.</span><span class="n">draw_interaction</span><span class="p">([</span><span class="n">Pd_5s</span><span class="p">,</span> <span class="n">Pd_4d</span><span class="p">,</span> <span class="n">sub_homo</span><span class="p">,</span> <span class="n">sub_lumo</span><span class="p">],</span> <span class="n">mos</span><span class="p">,</span> <span class="n">connection_colors</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">connection_types</span><span class="o">=</span><span class="n">connection_colors</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">fragment_order</span><span class="o">=</span><span class="p">[</span><span class="s1">'Pd'</span><span class="p">,</span> <span class="s1">'Substrate'</span><span class="p">])</span>
 
-    <span class="c1"># add the two mixings together</span>
-    <span class="n">main_mix</span> <span class="o">=</span> <span class="n">mix1</span> <span class="o">+</span> <span class="n">mix2</span>
-
-    <span class="c1"># draw the diagrams</span>
-    <span class="n">main_mix</span><span class="o">.</span><span class="n">draw_diagram</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s1">'C-H distance: </span><span class="si">{</span><span class="n">distances</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">:</span><span class="s1"> .2f</span><span class="si">}</span><span class="s1"> Å'</span><span class="p">)</span>
 
     <span class="c1"># and then plot the overlaps</span>
     <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">distances</span><span class="p">[:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">overlaps1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">'$\langle 5S | 4AA \rangle$'</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">'b'</span><span class="p">)</span>
-    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">distances</span><span class="p">[:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">overlaps2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">'$\langle 2D:x2-y2 | 5AA \rangle$'</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">'r'</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">distances</span><span class="p">[:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">overlaps2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">'$\langle 4D:x2-y2 | 5AA \rangle$'</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">'r'</span><span class="p">)</span>
 
     <span class="c1"># and energy gaps</span>
     <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">distances</span><span class="p">[:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">egaps1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">'$| \varepsilon_</span><span class="si">{5S}</span><span class="s1"> - \varepsilon_</span><span class="si">{4AA}</span><span class="s1"> |$'</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">'b'</span><span class="p">)</span>
-    <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">distances</span><span class="p">[:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">egaps2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">'$| \varepsilon_{2D:x2-y2} - \varepsilon_</span><span class="si">{5AA}</span><span class="s1"> |$'</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">'r'</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">distances</span><span class="p">[:</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">egaps2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">'$| \varepsilon_{4D:x2-y2} - \varepsilon_</span><span class="si">{5AA}</span><span class="s1"> |$'</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">'r'</span><span class="p">)</span>
 
     <span class="c1"># set some limits and labels</span>
     <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">distances</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">distances</span><span class="p">))</span>
@@ -457,10 +458,9 @@
 
 
 <span class="c1"># take the file locations of the frames we saved and make a movie</span>
-<span class="n">clips</span> <span class="o">=</span> <span class="p">[</span><span class="n">mvp</span><span class="o">.</span><span class="n">ImageClip</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span><span class="o">.</span><span class="n">set_duration</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">14</span><span class="p">)</span> <span class="k">for</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">frames</span><span class="p">]</span>
+<span class="n">clips</span> <span class="o">=</span> <span class="p">[</span><span class="n">mvp</span><span class="o">.</span><span class="n">ImageClip</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span><span class="o">.</span><span class="n">with_duration</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">14</span><span class="p">)</span> <span class="k">for</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">frames</span><span class="p">]</span>
 <span class="n">concat_clip</span> <span class="o">=</span> <span class="n">mvp</span><span class="o">.</span><span class="n">concatenate_videoclips</span><span class="p">(</span><span class="n">clips</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"compose"</span><span class="p">)</span>
 <span class="n">concat_clip</span><span class="o">.</span><span class="n">write_videofile</span><span class="p">(</span><span class="s1">'orbint.mp4'</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">concat_clip</span><span class="o">.</span><span class="n">write_gif</span><span class="p">(</span><span class="s1">'orbint.gif'</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

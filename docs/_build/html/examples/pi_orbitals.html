@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Detection of π-Orbitals &#8212; PyOrbb v1.0.0 documentation</title>
+    <title>Detection of π-Orbitals &#8212; PyOrbb v1.0.2 documentation</title>
   
   
   
@@ -39,7 +39,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="../_static/documentation_options.js?v=76e2d817"></script>
+    <script src="../_static/documentation_options.js?v=e562d664"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
@@ -129,7 +129,7 @@
     <img src="../_static/icon_12.png" class="logo__image only-dark pst-js-only" alt=""/>
   
   
-    <p class="title logo__title">PyOrbb v1.0.0 documentation</p>
+    <p class="title logo__title">PyOrbb v1.0.2 documentation</p>
   
 </a></div>
     
@@ -207,7 +207,7 @@
   </p>
   <div class="bd-toc-item navbar-nav">
     <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation Manual PyOrbb v1.0.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation Manual PyOrbb v1.0.2</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../application.html">PyOrbb Application</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../notices.html">Warnings and Errors in PyOrbb</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../GUI_examples/index.html">Example PyOrbb Analyses</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -362,18 +362,18 @@ In this tutorial we consider the molecular orbitals of the indole molecule calcu
 <span class="n">n</span> <span class="o">=</span> <span class="n">Vh</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
 <span class="c1"># we can then find the p-orbitals of the carbons and nitrogens</span>
-<span class="n">px_sfos</span> <span class="o">=</span> <span class="n">orbs</span><span class="o">.</span><span class="n">sfos</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">fragment</span><span class="o">=</span><span class="p">(</span><span class="s1">'N'</span><span class="p">,</span> <span class="s1">'C'</span><span class="p">),</span> <span class="n">orbname</span><span class="o">=</span><span class="s1">'1P:x'</span><span class="p">)</span>
-<span class="n">py_sfos</span> <span class="o">=</span> <span class="n">orbs</span><span class="o">.</span><span class="n">sfos</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">fragment</span><span class="o">=</span><span class="p">(</span><span class="s1">'N'</span><span class="p">,</span> <span class="s1">'C'</span><span class="p">),</span> <span class="n">orbname</span><span class="o">=</span><span class="s1">'1P:y'</span><span class="p">)</span>
-<span class="n">pz_sfos</span> <span class="o">=</span> <span class="n">orbs</span><span class="o">.</span><span class="n">sfos</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">fragment</span><span class="o">=</span><span class="p">(</span><span class="s1">'N'</span><span class="p">,</span> <span class="s1">'C'</span><span class="p">),</span> <span class="n">orbname</span><span class="o">=</span><span class="s1">'1P:z'</span><span class="p">)</span>
+<span class="n">px_fmos</span> <span class="o">=</span> <span class="n">orbs</span><span class="o">.</span><span class="n">fmos</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">fragment</span><span class="o">=</span><span class="p">(</span><span class="s1">'N'</span><span class="p">,</span> <span class="s1">'C'</span><span class="p">),</span> <span class="n">orbname</span><span class="o">=</span><span class="s1">'2P:x'</span><span class="p">)</span>
+<span class="n">py_fmos</span> <span class="o">=</span> <span class="n">orbs</span><span class="o">.</span><span class="n">fmos</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">fragment</span><span class="o">=</span><span class="p">(</span><span class="s1">'N'</span><span class="p">,</span> <span class="s1">'C'</span><span class="p">),</span> <span class="n">orbname</span><span class="o">=</span><span class="s1">'2P:y'</span><span class="p">)</span>
+<span class="n">pz_fmos</span> <span class="o">=</span> <span class="n">orbs</span><span class="o">.</span><span class="n">fmos</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">fragment</span><span class="o">=</span><span class="p">(</span><span class="s1">'N'</span><span class="p">,</span> <span class="s1">'C'</span><span class="p">),</span> <span class="n">orbname</span><span class="o">=</span><span class="s1">'2P:z'</span><span class="p">)</span>
 
 <span class="n">pi_mos</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">sigma_mos</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="c1"># we then check every MO</span>
 <span class="k">for</span> <span class="n">mo</span> <span class="ow">in</span> <span class="n">orbs</span><span class="o">.</span><span class="n">mos</span><span class="p">:</span>
     <span class="c1"># and obtain the coefficients of the px, py and pz orbitals</span>
-    <span class="n">px_coeffs</span> <span class="o">=</span> <span class="p">[</span><span class="n">sfo</span><span class="o">.</span><span class="n">coefficient</span><span class="p">(</span><span class="n">mo</span><span class="p">)</span> <span class="k">for</span> <span class="n">sfo</span> <span class="ow">in</span> <span class="n">px_sfos</span><span class="p">]</span>
-    <span class="n">py_coeffs</span> <span class="o">=</span> <span class="p">[</span><span class="n">sfo</span><span class="o">.</span><span class="n">coefficient</span><span class="p">(</span><span class="n">mo</span><span class="p">)</span> <span class="k">for</span> <span class="n">sfo</span> <span class="ow">in</span> <span class="n">py_sfos</span><span class="p">]</span>
-    <span class="n">pz_coeffs</span> <span class="o">=</span> <span class="p">[</span><span class="n">sfo</span><span class="o">.</span><span class="n">coefficient</span><span class="p">(</span><span class="n">mo</span><span class="p">)</span> <span class="k">for</span> <span class="n">sfo</span> <span class="ow">in</span> <span class="n">pz_sfos</span><span class="p">]</span>
+    <span class="n">px_coeffs</span> <span class="o">=</span> <span class="p">[</span><span class="n">fmo</span><span class="o">.</span><span class="n">coefficient</span><span class="p">(</span><span class="n">mo</span><span class="p">)</span> <span class="k">for</span> <span class="n">fmo</span> <span class="ow">in</span> <span class="n">px_fmos</span><span class="p">]</span>
+    <span class="n">py_coeffs</span> <span class="o">=</span> <span class="p">[</span><span class="n">fmo</span><span class="o">.</span><span class="n">coefficient</span><span class="p">(</span><span class="n">mo</span><span class="p">)</span> <span class="k">for</span> <span class="n">fmo</span> <span class="ow">in</span> <span class="n">py_fmos</span><span class="p">]</span>
+    <span class="n">pz_coeffs</span> <span class="o">=</span> <span class="p">[</span><span class="n">fmo</span><span class="o">.</span><span class="n">coefficient</span><span class="p">(</span><span class="n">mo</span><span class="p">)</span> <span class="k">for</span> <span class="n">fmo</span> <span class="ow">in</span> <span class="n">pz_fmos</span><span class="p">]</span>
     <span class="c1"># we can now construct the direction of the p-orbitals</span>
     <span class="n">p_vectors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">px_coeffs</span><span class="p">,</span> <span class="n">py_coeffs</span><span class="p">,</span> <span class="n">pz_coeffs</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
 
@@ -384,7 +384,7 @@ In this tutorial we consider the molecular orbitals of the indole molecule calcu
     <span class="n">alignments</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">p_vectors</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 
     <span class="c1"># the total alignment can just be the product of all individual alignments</span>
-    <span class="n">alignment</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">alignments</span><span class="p">)</span>
+    <span class="n">alignment</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">alignments</span><span class="p">)</span>
 
     <span class="c1"># if the total alignment is close to 1 it is most likely a pi-orbital</span>
     <span class="k">if</span> <span class="n">alignment</span> <span class="o">&gt;</span> <span class="mf">0.999</span><span class="p">:</span>

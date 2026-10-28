@@ -26,18 +26,18 @@ _, _, Vh = scipy.linalg.svd(molecule.as_array())
 n = Vh[-1]
 
 # we can then find the p-orbitals of the carbons and nitrogens
-px_sfos = orbs.sfos.filter(fragment=('N', 'C'), orbname='1P:x')
-py_sfos = orbs.sfos.filter(fragment=('N', 'C'), orbname='1P:y')
-pz_sfos = orbs.sfos.filter(fragment=('N', 'C'), orbname='1P:z')
+px_fmos = orbs.fmos.filter(fragment=('N', 'C'), orbname='2P:x')
+py_fmos = orbs.fmos.filter(fragment=('N', 'C'), orbname='2P:y')
+pz_fmos = orbs.fmos.filter(fragment=('N', 'C'), orbname='2P:z')
 
 pi_mos = []
 sigma_mos = []
 # we then check every MO
 for mo in orbs.mos:
     # and obtain the coefficients of the px, py and pz orbitals
-    px_coeffs = [sfo.coefficient(mo) for sfo in px_sfos]
-    py_coeffs = [sfo.coefficient(mo) for sfo in py_sfos]
-    pz_coeffs = [sfo.coefficient(mo) for sfo in pz_sfos]
+    px_coeffs = [fmo.coefficient(mo) for fmo in px_fmos]
+    py_coeffs = [fmo.coefficient(mo) for fmo in py_fmos]
+    pz_coeffs = [fmo.coefficient(mo) for fmo in pz_fmos]
     # we can now construct the direction of the p-orbitals
     p_vectors = np.array([px_coeffs, py_coeffs, pz_coeffs]).T
 
@@ -48,7 +48,7 @@ for mo in orbs.mos:
     alignments = np.dot(p_vectors, n)
 
     # the total alignment can just be the product of all individual alignments
-    alignment = np.product(alignments)
+    alignment = np.prod(alignments)
 
     # if the total alignment is close to 1 it is most likely a pi-orbital
     if alignment > 0.999:
