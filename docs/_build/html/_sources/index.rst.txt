@@ -44,7 +44,7 @@
       Open an issue for the developers.
 
     .. grid-item-card:: TheoCheM
-      :link: https://www.theochem.nl/
+      :link: https://www.theochem.eu/
 
       .. image:: _static/images/theochem_logo.png
          :width: 100%
