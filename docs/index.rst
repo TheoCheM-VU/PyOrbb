@@ -53,6 +53,18 @@
 
       Learn about our research group!
 
+    .. grid-item-card:: Citing PyOrbb
+      :link: cite.html
+
+      .. image:: _static/images/cards/cite.png
+         :width: 100%
+         :align: center
+         :class: largepadding
+
+      How to cite PyOrbb in your work.
+
+      
+
       
 
 Learn about PyOrbb

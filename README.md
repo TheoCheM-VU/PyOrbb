@@ -61,8 +61,26 @@ git pull
 ```
 
 ## Contact us
-If you want to report a problem or suggest an enhancement we'd encourage for you to open an issue in this GitHub repository. Otherwise you can reach us by email (<https://www.theochem.eu/contact>).
+If you want to report a problem or suggest an enhancement we encourage you to open an issue in this GitHub repository. Otherwise you can reach us by email (<https://www.theochem.eu/contact>).
 
+
+## How to cite
+If you used PyOrbb in your work you can cite it as follows:
+
+```
+Y. Hordijk, S. E. Beutick, X. Sun, L. Groot, T. Gijzen, J. Poater, T. A. Hamlin, F. M. Bickelhaupt, and C. Fonseca Guerra
+PyOrbb—Automated Analyses of Orbital-Interaction Mechanisms
+J. Comput. Chem.
+ 
+2026
+, 
+47
+, 
+e70512
+Y. Hordijk, S. E. Beutick, X. Sun, L. Groot, T. Gijzen, J. Poater, T. A. Hamlin, F. M. Bickelhaupt, and C. Fonseca Guerra
+PyOrbb 2026
+Vrije Universiteit Amsterdam, The Netherlands
+```
 
 ## Find out more
 You Might be interested in:
