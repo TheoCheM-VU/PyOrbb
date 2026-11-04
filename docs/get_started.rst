@@ -1,7 +1,7 @@
 Getting Started: H\ :sub:`3`\ B←NH\ :sub:`3` Lewis Adduct
 #########################################################
 
-|PyOrbb| is a tool designed to help you perform orbital interaction analyses. It provides you with a user-interface capable of producing orbital interaction diagrams. In this tutorial we will walk through the process of performing a basic |PyOrbb| analysis using the :abbr:`GUI (Graphical User Interace)` of |PyOrbb|. Throughout this tutorial we will be using the results of a calculation containing the H\ :sub:`3`\ N→BH\ :sub:`3` Lewis acid-base pair, which you can download here: :download:`NH3_BH3.rkf <NH3_BH3.rkf>`.
+|PyOrbb| is a tool designed to help you perform orbital interaction analyses. It provides you with a user-interface capable of producing orbital interaction diagrams. In this tutorial we will walk through the process of performing a basic |PyOrbb| analysis using the :abbr:`GUI (Graphical User Interface)` of |PyOrbb|. Throughout this tutorial we will be using the results of a calculation containing the H\ :sub:`3`\ N→BH\ :sub:`3` Lewis acid-base pair, which you can download here: :download:`NH3_BH3.rkf <NH3_BH3.rkf>`.
 
 .. seealso::
    `Click here <https://www.scm.com/doc/Tutorials/Analysis/FragmentAnalysis.html>`_ for a tutorial on the |AMS| website on how to perform fragment calculations yourself.
@@ -90,9 +90,9 @@ When a valid :file:`adf.rkf` (a result file from ADF) file is provided, |PyOrbb|
 
       This part of the GUI shows you the orbital interactions identified by |PyOrbb|.
 
-      The small black horizontal lines are the energy-levels of the orbitals and are arranged by the molecular species they belong to. In this case the left and right columns are for the :abbr:`FMOs (Fragment molecular orbitals)` and the middle column is for the :abbr:`MOs (Molecular orbitals)`. The levels can be populated by 0, 1, or 2 electrons, indicated by the arrows, and the directions of the arrows indicate the spin they posses: pointing up corresponds to alpha-spin and down to beta-spin. 
+      The small black horizontal lines are the energy-levels of the orbitals and are arranged by the molecular species they belong to. In this case the left and right columns are for the :abbr:`FMOs (Fragment molecular orbitals)` and the middle column is for the :abbr:`MOs (Molecular orbitals)`. The levels can be populated by 0, 1, or 2 electrons, indicated by the arrows, and the directions of the arrows indicate the spin they possess: pointing up corresponds to alpha-spin and down to beta-spin. 
 
-      The lines between the FMOs and MOs indicate whether there is a contribution from the FMO to the MO. The brightness is determined by the Mulliken contribution between the orbitals, and the color of it indicates what kind of interaction it is. Red indicates a Pauli-repulsive interaction, green indicates an orbital interaction, grey indicates a connection participating in both Pauli-repulsive and orbital interactions, and purple indicates connections added during the santization step of the algorithm.
+      The lines between the FMOs and MOs indicate whether there is a contribution from the FMO to the MO. The brightness is determined by the Mulliken contribution between the orbitals, and the color of it indicates what kind of interaction it is. Red indicates a Pauli-repulsive interaction, green indicates an orbital interaction, grey indicates a connection participating in both Pauli-repulsive and orbital interactions, and purple indicates connections added during the sanitization step of the algorithm.
 
 
       .. admonition:: Interactive elements
@@ -101,7 +101,7 @@ When a valid :file:`adf.rkf` (a result file from ADF) file is provided, |PyOrbb|
          **Several elements are (double-)clickable in the diagram:**
 
          1. Scrolling and dragging allows you to zoom in or out and shift the diagram up or down, respectively. Right-clicking resets the diagram to its original state.
-         2. The names of the columns are double-clickable and renamble. You can also drag and drop them to reorder the columns however you like.
+         2. The names of the columns are double-clickable and renameable. You can also drag and drop them to reorder the columns however you like.
          3. The y-axis can be double-clicked to manually set the axis limits.
          4. The orbital levels and connections are clickable and will show information about them and their interaction in the Information Tab. You can hold shift to select multiple levels or connections at once.
          5. If there are notices (warnings or errors) related to the orbitals they will have a small warning sign next to them. Clicking these will open the corresponding notice on the right side for you.
@@ -164,7 +164,7 @@ When a valid :file:`adf.rkf` (a result file from ADF) file is provided, |PyOrbb|
 
       **Producing the main output of |PyOrbb|**
 
-      When you are satisfied with the diagram shown you can export the main orbital interaction diagram using the Save Figure button. |PyOrbb| also provides the option to generate a spreadsheet containing an overview of information about the calculation which can be very usefull for manual analysis of the data.
+      When you are satisfied with the diagram shown you can export the main orbital interaction diagram using the Save Figure button. |PyOrbb| also provides the option to generate a spreadsheet containing an overview of information about the calculation which can be very useful for manual analysis of the data.
 
 
 Visualisation and Obtaining Data
@@ -191,14 +191,14 @@ Let's start by visualizing the orbitals involved in the mixing of the occupied N
 .. image:: _static/images/get_started/viewer_together_dark.png
    :class: only-dark
 
-PyOrbb should open a window showing you the two overlaid orbitals. It should be obvious why this interaction was deemed the most important by |PyOrbb|, the orbitals clearly have a very overlap, especially in the region between the boron and nitrogen atoms. PyOrbb also gives the option to visualize the overlap directly.
+PyOrbb should open a window showing you the two overlaid orbitals. It should be obvious why this interaction was deemed the most important by |PyOrbb|, the orbitals clearly have a very strong overlap, especially in the region between the boron and nitrogen atoms. PyOrbb also gives the option to visualize the overlap directly.
 
 **Drawing Orbital Overlap**
 
 .. admonition:: **Step 3**: Visualize the overlap between NH\ :sub:`3`\ (3A\ :sub:`1`) and BH\ :sub:`3`\ (3A\ :sub:`1`)
    :class: important
 
-   Again hold down the :kbd:`shift` key and click on the energy levels of the NH\ :sub:`3`\ (3A\ :sub:`1`) and BH\ :sub:`3`\ (3A\ :sub:`1`) orbitals. Click the "Draw Orbitals" button to open the visualization dropdown menu and select the one to last option with the brown "`S`" sign.
+   Again hold down the :kbd:`shift` key and click on the energy levels of the NH\ :sub:`3`\ (3A\ :sub:`1`) and BH\ :sub:`3`\ (3A\ :sub:`1`) orbitals. Click the "Draw Orbitals" button to open the visualization dropdown menu and select the second-to-last option with the brown "`S`" sign.
 
 
 .. image:: _static/images/get_started/viewer_overlap.png
