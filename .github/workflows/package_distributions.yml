@@ -58,7 +58,7 @@ jobs:
           overwrite: true
 
   archlinux-build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python3.11
@@ -87,7 +87,7 @@ jobs:
           overwrite: true
 
   ubuntu-build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python3.12
