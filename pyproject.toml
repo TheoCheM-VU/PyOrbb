@@ -33,7 +33,7 @@ dynamic = ["version"]
 dependencies = [
     "pyside6-essentials==6.7.3 ; python_version < '3.13'",
     "pyside6-essentials==6.10.3 ; python_version >= '3.13'",
-    "tcviewer==0.2",
+    "tcviewer==0.2.1",
     "tcmu==0.18.2",
     "numpy",
     "matplotlib>=3.5.3",
