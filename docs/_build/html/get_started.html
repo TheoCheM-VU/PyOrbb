@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Getting Started: H3B←NH3 Lewis Adduct &#8212; PyOrbb v1.0.5 documentation</title>
+    <title>Getting Started: H3B←NH3 Lewis Adduct &#8212; PyOrbb v1.0.6 documentation</title>
   
   
   
@@ -26,22 +26,22 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=75c7c72ae941e8b558d8" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=6a604523" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
+  <script defer src="_static/scripts/fontawesome.js?digest=75c7c72ae941e8b558d8"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8" />
 
-    <script src="_static/documentation_options.js?v=2eeb46a9"></script>
+    <script src="_static/documentation_options.js?v=1913ccc3"></script>
     <script src="_static/doctools.js?v=fd6eb6e6"></script>
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
-    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="_static/design-tabs.js?v=fcb327ea"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'get_started';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <script src="_static/gui_tabs.js?v=ea04d928"></script>
@@ -101,7 +101,7 @@
   
     <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation" aria-expanded="false" aria-controls="pst-primary-sidebar-modal">
     <span class="fa-solid fa-bars"></span>
   </button>
   
@@ -127,7 +127,7 @@
     <img src="_static/icon_12.png" class="logo__image only-dark pst-js-only" alt=""/>
   
   
-    <p class="title logo__title">PyOrbb v1.0.5 documentation</p>
+    <p class="title logo__title">PyOrbb v1.0.6 documentation</p>
   
 </a></div>
     
@@ -165,7 +165,7 @@
   
 
   
-    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page" aria-expanded="false" aria-controls="pst-secondary-sidebar-modal">
       <span class="fa-solid fa-outdent"></span>
     </button>
   
@@ -179,7 +179,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <dialog id="pst-primary-sidebar-modal" tabindex="-1"></dialog>
       <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
@@ -205,7 +205,7 @@
   </p>
   <div class="bd-toc-item navbar-nav">
     <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation Manual PyOrbb v1.0.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation Manual PyOrbb v1.0.6</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="application.html">PyOrbb Application</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="notices.html">Warnings and Errors in PyOrbb</a></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="GUI_examples/index.html">Example PyOrbb Analyses</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -295,7 +295,7 @@
     
     <li class="breadcrumb-item breadcrumb-home">
       <a href="index.html" class="nav-link" aria-label="Home">
-        <i class="fa-solid fa-home"></i>
+        <i class="fa-solid fa-house"></i>
       </a>
     </li>
     
@@ -323,7 +323,7 @@
                   
   <section id="getting-started-h3bnh3-lewis-adduct">
 <h1>Getting Started: H<sub>3</sub>B←NH<sub>3</sub> Lewis Adduct<a class="headerlink" href="#getting-started-h3bnh3-lewis-adduct" title="Link to this heading">#</a></h1>
-<p><strong class="program">PyOrbb</strong> is a tool designed to help you perform orbital interaction analyses. It provides you with a user-interface capable of producing orbital interaction diagrams. In this tutorial we will walk through the process of performing a basic <strong class="program">PyOrbb</strong> analysis using the <abbr title="Graphical User Interace">GUI</abbr> of <strong class="program">PyOrbb</strong>. Throughout this tutorial we will be using the results of a calculation containing the H<sub>3</sub>N→BH<sub>3</sub> Lewis acid-base pair, which you can download here: <a class="reference download internal" download="" href="_downloads/45d8b822e89ca4b60d30a2180000b479/NH3_BH3.rkf"><code class="xref download docutils literal notranslate"><span class="pre">NH3_BH3.rkf</span></code></a>.</p>
+<p><strong class="program">PyOrbb</strong> is a tool designed to help you perform orbital interaction analyses. It provides you with a user-interface capable of producing orbital interaction diagrams. In this tutorial we will walk through the process of performing a basic <strong class="program">PyOrbb</strong> analysis using the <abbr title="Graphical User Interface">GUI</abbr> of <strong class="program">PyOrbb</strong>. Throughout this tutorial we will be using the results of a calculation containing the H<sub>3</sub>N→BH<sub>3</sub> Lewis acid-base pair, which you can download here: <a class="reference download internal" download="" href="_downloads/45d8b822e89ca4b60d30a2180000b479/NH3_BH3.rkf"><code class="xref download docutils literal notranslate"><span class="pre">NH3_BH3.rkf</span></code></a>.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference external" href="https://www.scm.com/doc/Tutorials/Analysis/FragmentAnalysis.html">Click here</a> for a tutorial on the <strong class="program">AMS</strong> website on how to perform fragment calculations yourself.</p>
@@ -388,18 +388,18 @@
   </a>
 </div><div class="sd-tab-set gui-tabs docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-0">
-Diagram</label><div class="sd-tab-content docutils">
+<label aria-controls="sd-tab-item-0-content" class="sd-tab-label" for="sd-tab-item-0">
+Diagram</label><div class="sd-tab-content docutils" id="sd-tab-item-0-content">
 <p><strong>Main orbital interaction diagram generated by |PyOrbb|</strong></p>
 <p>This part of the GUI shows you the orbital interactions identified by <strong class="program">PyOrbb</strong>.</p>
-<p>The small black horizontal lines are the energy-levels of the orbitals and are arranged by the molecular species they belong to. In this case the left and right columns are for the <abbr title="Fragment molecular orbitals">FMOs</abbr> and the middle column is for the <abbr title="Molecular orbitals">MOs</abbr>. The levels can be populated by 0, 1, or 2 electrons, indicated by the arrows, and the directions of the arrows indicate the spin they posses: pointing up corresponds to alpha-spin and down to beta-spin.</p>
-<p>The lines between the FMOs and MOs indicate whether there is a contribution from the FMO to the MO. The brightness is determined by the Mulliken contribution between the orbitals, and the color of it indicates what kind of interaction it is. Red indicates a Pauli-repulsive interaction, green indicates an orbital interaction, grey indicates a connection participating in both Pauli-repulsive and orbital interactions, and purple indicates connections added during the santization step of the algorithm.</p>
+<p>The small black horizontal lines are the energy-levels of the orbitals and are arranged by the molecular species they belong to. In this case the left and right columns are for the <abbr title="Fragment molecular orbitals">FMOs</abbr> and the middle column is for the <abbr title="Molecular orbitals">MOs</abbr>. The levels can be populated by 0, 1, or 2 electrons, indicated by the arrows, and the directions of the arrows indicate the spin they possess: pointing up corresponds to alpha-spin and down to beta-spin.</p>
+<p>The lines between the FMOs and MOs indicate whether there is a contribution from the FMO to the MO. The brightness is determined by the Mulliken contribution between the orbitals, and the color of it indicates what kind of interaction it is. Red indicates a Pauli-repulsive interaction, green indicates an orbital interaction, grey indicates a connection participating in both Pauli-repulsive and orbital interactions, and purple indicates connections added during the sanitization step of the algorithm.</p>
 <div class="seealso admonition">
 <p class="admonition-title">Interactive elements</p>
 <p><strong>Several elements are (double-)clickable in the diagram:</strong></p>
 <ol class="arabic simple">
 <li><p>Scrolling and dragging allows you to zoom in or out and shift the diagram up or down, respectively. Right-clicking resets the diagram to its original state.</p></li>
-<li><p>The names of the columns are double-clickable and renamble. You can also drag and drop them to reorder the columns however you like.</p></li>
+<li><p>The names of the columns are double-clickable and renameable. You can also drag and drop them to reorder the columns however you like.</p></li>
 <li><p>The y-axis can be double-clicked to manually set the axis limits.</p></li>
 <li><p>The orbital levels and connections are clickable and will show information about them and their interaction in the Information Tab. You can hold shift to select multiple levels or connections at once.</p></li>
 <li><p>If there are notices (warnings or errors) related to the orbitals they will have a small warning sign next to them. Clicking these will open the corresponding notice on the right side for you.</p></li>
@@ -407,8 +407,8 @@ Diagram</label><div class="sd-tab-content docutils">
 </div>
 </div>
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-1">
-Information Tabs</label><div class="sd-tab-content docutils">
+<label aria-controls="sd-tab-item-1-content" class="sd-tab-label" for="sd-tab-item-1">
+Information Tabs</label><div class="sd-tab-content docutils" id="sd-tab-item-1-content">
 <p><strong>Main information sections</strong></p>
 <p>The information tabs show you information related to orbitals, molecules, the overall system, and any errors or warnings that were detected during loading of the calculation results. The information is organized in 3 tabs. The information can be viewed by clicking the headers inside the tabs.</p>
 <p><strong>Orbitals</strong></p>
@@ -423,8 +423,8 @@ Information Tabs</label><div class="sd-tab-content docutils">
 </div>
 </div>
 <input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-2">
-Sliders</label><div class="sd-tab-content docutils">
+<label aria-controls="sd-tab-item-2-content" class="sd-tab-label" for="sd-tab-item-2">
+Sliders</label><div class="sd-tab-content docutils" id="sd-tab-item-2-content">
 <p><strong>Setting orbital interaction ranking thresholds</strong></p>
 <p>The sliders are used to adjust the thresholds that <strong class="program">PyOrbb</strong> uses to determine which interactions to include. The lower the threshold value is the more interactions are included in the main diagram.</p>
 <div class="admonition seealso">
@@ -433,8 +433,8 @@ Sliders</label><div class="sd-tab-content docutils">
 </div>
 </div>
 <input id="sd-tab-item-3" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-3">
-Filters &amp; Options</label><div class="sd-tab-content docutils">
+<label aria-controls="sd-tab-item-3-content" class="sd-tab-label" for="sd-tab-item-3">
+Filters &amp; Options</label><div class="sd-tab-content docutils" id="sd-tab-item-3-content">
 <p><strong>Draw Orbitals</strong></p>
 <p>When orbitals or connections are selected in the main diagram the Draw Orbitals button is activated. Clicking it will then show you a dropdown menu with several options for drawing the orbitals involved.</p>
 <p><strong>Filter</strong></p>
@@ -449,10 +449,10 @@ Filters &amp; Options</label><div class="sd-tab-content docutils">
 <p>One can also manually include or exclude specific orbitals from the interaction. This also includes the option to include/exclude all orbitals of specific spin types or irreducible representations. <strong class="program">PyOrbb</strong> also provides information about all orbitals included in the system and also gives the option to draw them.</p>
 </div>
 <input id="sd-tab-item-4" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-4">
-Save Buttons</label><div class="sd-tab-content docutils">
+<label aria-controls="sd-tab-item-4-content" class="sd-tab-label" for="sd-tab-item-4">
+Save Buttons</label><div class="sd-tab-content docutils" id="sd-tab-item-4-content">
 <p><strong>Producing the main output of |PyOrbb|</strong></p>
-<p>When you are satisfied with the diagram shown you can export the main orbital interaction diagram using the Save Figure button. <strong class="program">PyOrbb</strong> also provides the option to generate a spreadsheet containing an overview of information about the calculation which can be very usefull for manual analysis of the data.</p>
+<p>When you are satisfied with the diagram shown you can export the main orbital interaction diagram using the Save Figure button. <strong class="program">PyOrbb</strong> also provides the option to generate a spreadsheet containing an overview of information about the calculation which can be very useful for manual analysis of the data.</p>
 </div>
 </div>
 </section>
@@ -471,11 +471,11 @@ Save Buttons</label><div class="sd-tab-content docutils">
 </div>
 <img alt="_images/viewer_together.png" class="only-light" src="_images/viewer_together.png" />
 <img alt="_images/viewer_together_dark.png" class="only-dark" src="_images/viewer_together_dark.png" />
-<p>PyOrbb should open a window showing you the two overlaid orbitals. It should be obvious why this interaction was deemed the most important by <strong class="program">PyOrbb</strong>, the orbitals clearly have a very overlap, especially in the region between the boron and nitrogen atoms. PyOrbb also gives the option to visualize the overlap directly.</p>
+<p>PyOrbb should open a window showing you the two overlaid orbitals. It should be obvious why this interaction was deemed the most important by <strong class="program">PyOrbb</strong>, the orbitals clearly have a very strong overlap, especially in the region between the boron and nitrogen atoms. PyOrbb also gives the option to visualize the overlap directly.</p>
 <p><strong>Drawing Orbital Overlap</strong></p>
 <div class="important admonition">
 <p class="admonition-title"><strong>Step 3</strong>: Visualize the overlap between NH<sub>3</sub>(3A<sub>1</sub>) and BH<sub>3</sub>(3A<sub>1</sub>)</p>
-<p>Again hold down the <kbd class="kbd docutils literal notranslate">shift</kbd> key and click on the energy levels of the NH<sub>3</sub>(3A<sub>1</sub>) and BH<sub>3</sub>(3A<sub>1</sub>) orbitals. Click the “Draw Orbitals” button to open the visualization dropdown menu and select the one to last option with the brown “<cite>S</cite>” sign.</p>
+<p>Again hold down the <kbd class="kbd docutils literal notranslate">shift</kbd> key and click on the energy levels of the NH<sub>3</sub>(3A<sub>1</sub>) and BH<sub>3</sub>(3A<sub>1</sub>) orbitals. Click the “Draw Orbitals” button to open the visualization dropdown menu and select the second-to-last option with the brown “<cite>S</cite>” sign.</p>
 </div>
 <img alt="_images/viewer_overlap.png" class="only-light" src="_images/viewer_overlap.png" />
 <img alt="_images/viewer_overlap_dark.png" class="only-dark" src="_images/viewer_overlap_dark.png" />
@@ -524,7 +524,7 @@ Save Buttons</label><div class="sd-tab-content docutils">
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <dialog id="pst-secondary-sidebar-modal" tabindex="-1"></dialog>
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
@@ -564,8 +564,8 @@ Save Buttons</label><div class="sd-tab-content docutils">
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=75c7c72ae941e8b558d8"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=75c7c72ae941e8b558d8"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -598,7 +598,7 @@ Save Buttons</label><div class="sd-tab-content docutils">
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.24.0.
 </p></div>
       
     </div>
