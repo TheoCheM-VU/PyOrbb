@@ -13,7 +13,7 @@ concurrency:
 jobs:
   pypi-publish:
     name: Upload release to PyPI
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     environment:
       name: pypi-publish
       url: https://pypi.org/project/${{ github.event.repository.name }}/
