@@ -36,12 +36,6 @@ distances = [distances[i] for i in distance_order]
 # make the directory to store the frames in
 os.makedirs('frames', exist_ok=True)
 
-
-def find_mos(fmo1, fmo2):
-    # first parent is the FMOs object, its parent is the Orbitals object containing the MOs
-    mos = fmo1.parent.parent.mos
-
-
 # for each Orbitals object generate the diagram and save it to a file
 # we want to also show the energy gaps and overlaps
 frames = []
