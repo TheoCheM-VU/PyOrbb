@@ -45,25 +45,12 @@ jobs:
       - name: Build the docs
         run: cd docs; sphinx-build . ./_build/html
 
-      - name: Upload build to repo
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-            commit_message: Documentation build
-            file_pattern: 'docs/*'
-            add_options: '-f'
-            status_options: '-uall --ignored'
-            push_options: '--force'
-            branch: main
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           # Upload entire repository
           path: './docs/_build/html/'
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
