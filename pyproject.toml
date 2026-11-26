@@ -82,7 +82,7 @@ formal_name = "PyOrbb"
 description = "PyOrbb is an automated orbital analysis tool used in the TheoCheM group at VU Amsterdam"
 long_description = """More details about the app should go here.
 """
-icon = "icon_12"
+icon = "icons/icon-iOS-Default-1024@1x"
 sources = [
     "src/pyorbb",
 ]
